@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondo"
+    tools:context=".TransportistaActivity">
+
+    <TextView
+        android:id="@+id/textDatosTransportista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Datos del Transportista"
+        android:textSize="32dp"
+        android:textColor="@color/colorTexto"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="84dp" />
+    <TextView
+        android:id="@+id/textNombre"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="Nombre del Transportista" />
+
+    <TextView
+        android:id="@+id/textPlaca"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="Placas" />
+
+    <TextView
+        android:id="@+id/textNumeroCandado"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="Numero de Candado"  />
+
+    <TextView
+        android:id="@+id/textNumeroCamion"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="TextView"  />
+
+    <TextView
+        android:id="@+id/textHoraSalida"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="Hora de Salida" />
+
+    <TextView
+        android:id="@+id/textProductos"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="Productos" />
+
+    <TextView
+        android:id="@+id/textFolio"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="Folio" />
+
+    <Button
+        android:id="@+id/buttonSiguiente"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBoton"
+        android:textColor="@color/colorTexto"
+        android:gravity="center"
+        android:text="Siguiente" />
+</LinearLayout>

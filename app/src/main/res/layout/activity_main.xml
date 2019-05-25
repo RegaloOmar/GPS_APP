@@ -9,5 +9,26 @@
     tools:context=".MainActivity">
 
 
+    <Spinner
+        android:id="@+id/spinnerEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        />
 
+    <Spinner
+        android:id="@+id/spinnerCedis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        />
+
+    <Button
+        android:id="@+id/buttonSeleccionar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorBoton"
+        android:textColor="@color/colorTexto"/>
 </LinearLayout>
