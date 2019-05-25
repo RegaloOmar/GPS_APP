@@ -22,7 +22,7 @@
         tools:layout_editor_absoluteY="84dp" />
     <TextView
         android:id="@+id/textNombre"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorTexto"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorTexto"
         android:gravity="center"
-        android:text="TextView"  />
+        android:text="Numero de camion"  />
 
     <TextView
         android:id="@+id/textHoraSalida"
