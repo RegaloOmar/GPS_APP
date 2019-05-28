@@ -6,4 +6,8 @@
     <color name="colorBoton">#FF930F</color>
     <color name="colorFondo">#131313</color>
     <color name="colorTexto">#FFFFFF</color>
+    <color name="semafororRojo"> #DA2C07 </color>
+    <color name="semaforoAmarrillo"> #F0F400 </color>
+    <color name="semaforoVerde"> #33E303 </color>
+    <color name="semaforoAzul"> #08E8F7 </color>
 </resources>

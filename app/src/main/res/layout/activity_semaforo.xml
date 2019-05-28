@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SemaforoActivity">
+    tools:context=".SemaforoActivity"
+    android:background="@color/colorFondo"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+    <Switch
+        android:id="@+id/Semaforo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/semaforoVerde"
+        android:layout_marginTop="50dp"
+        android:text="Dos Horas antes de la cita" />
+
+    <Switch
+        android:id="@+id/Semaforo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/semaforoAmarrillo"
+        android:layout_marginTop="50dp"
+        android:text="Una Hora antes de la cita" />
+
+    <Switch
+        android:id="@+id/Semaforo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/semafororRojo"
+        android:layout_marginTop="50dp"
+        android:text="Igual o Mayor a la hora de la cita" />
+
+    <Switch
+        android:id="@+id/Semaforo4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/semaforoAzul"
+        android:layout_marginTop="50dp"
+        android:text="Arribo a tiempo" />
+
+    <Button
+        android:id="@+id/btn_Estatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estatus"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorBoton"
+        android:textColor="@color/colorTexto"/>
+</LinearLayout>

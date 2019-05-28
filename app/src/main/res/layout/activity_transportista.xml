@@ -8,84 +8,67 @@
     android:background="@color/colorFondo"
     tools:context=".TransportistaActivity">
 
-    <TextView
-        android:id="@+id/textDatosTransportista"
+
+    <EditText
+        android:id="@+id/txtNombredelTransportista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Datos del Transportista"
-        android:textSize="32dp"
-        android:textColor="@color/colorTexto"
+        android:ems="10"
         android:layout_marginTop="50dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="84dp" />
-    <TextView
-        android:id="@+id/textNombre"
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorTexto"
-        android:gravity="center"
-        android:text="Nombre del Transportista" />
+        android:hint="Nombre del Transportista"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorTexto" />
 
-    <TextView
-        android:id="@+id/textPlaca"
-        android:layout_marginTop="30dp"
+    <EditText
+        android:id="@+id/txtPlacas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTexto"
-        android:gravity="center"
-        android:text="Placas" />
+        android:ems="10"
+        android:layout_marginTop="50dp"
+        android:hint="Placas"
+        android:inputType="textPersonName"/>
 
-    <TextView
-        android:id="@+id/textNumeroCandado"
-        android:layout_marginTop="30dp"
+    <EditText
+        android:id="@+id/txtNumeroCandado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTexto"
-        android:gravity="center"
-        android:text="Numero de Candado"  />
+        android:ems="10"
+        android:layout_marginTop="50dp"
+        android:hint="Numero de Candado"
+        android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/textNumeroCamion"
-        android:layout_marginTop="30dp"
+    <EditText
+        android:id="@+id/txtProductos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTexto"
-        android:gravity="center"
-        android:text="Numero de camion"  />
+        android:ems="10"
+        android:layout_marginTop="50dp"
+        android:hint="Productos"
+        android:inputType="textPersonName"/>
 
-    <TextView
-        android:id="@+id/textHoraSalida"
-        android:layout_marginTop="30dp"
+    <EditText
+        android:id="@+id/txtHoraSalida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTexto"
-        android:gravity="center"
-        android:text="Hora de Salida" />
+        android:ems="10"
+        android:hint="Hora de salida"
+        android:layout_marginTop="50dp"
+        android:inputType="time" />
 
-    <TextView
-        android:id="@+id/textProductos"
-        android:layout_marginTop="30dp"
+    <EditText
+        android:id="@+id/txtFolio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTexto"
-        android:gravity="center"
-        android:text="Productos" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="50dp"
+        android:hint="Folio"
+         />
 
-    <TextView
-        android:id="@+id/textFolio"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorTexto"
-        android:gravity="center"
-        android:text="Folio" />
 
     <Button
         android:id="@+id/buttonSiguiente"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
