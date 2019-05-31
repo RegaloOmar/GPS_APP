@@ -49,4 +49,13 @@
         android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"/>
+
+    <Button
+        android:id="@+id/btn_Camara"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorBoton"
+        android:textColor="@color/colorTexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Camara" />
 </LinearLayout>
