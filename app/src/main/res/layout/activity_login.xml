@@ -9,10 +9,10 @@
     tools:context=".LoginActivity">
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Usuario"
         android:textColor="@color/colorTexto"
         android:layout_marginTop="250dp"
         android:ems="10"
