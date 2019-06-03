@@ -42,7 +42,7 @@
         android:text="Arribo a tiempo" />
 
     <Button
-        android:id="@+id/btn_Estatus"
+        android:id="@+id/btnEstatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Estatus"
@@ -51,7 +51,7 @@
         android:textColor="@color/colorTexto"/>
 
     <Button
-        android:id="@+id/btn_Camara"
+        android:id="@+id/btnCamara"
         android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"

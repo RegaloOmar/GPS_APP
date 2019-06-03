@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_Seleccionar = (Button) findViewById(R.id.buttonSeleccionar);
+        btn_Seleccionar = (Button) findViewById(R.id.btnSeleccionar);
+
 
         btn_Seleccionar.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -24,7 +25,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
     }
 }

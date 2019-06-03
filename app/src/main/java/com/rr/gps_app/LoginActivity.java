@@ -31,11 +31,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email_text = (EditText) findViewById(R.id.emailText);
+        email_text = (EditText) findViewById(R.id.txtEmail);
 
-        pass_text = (EditText) findViewById(R.id.passText) ;
+        pass_text = (EditText) findViewById(R.id.txtPass) ;
 
-        btn_InicoSesion = (Button) findViewById(R.id.buttonInicioSesion);
+        btn_InicoSesion = (Button) findViewById(R.id.btnInicioSesion);
 
         btn_InicoSesion.setOnClickListener(new View.OnClickListener() {
                                                @Override

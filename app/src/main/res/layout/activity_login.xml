@@ -9,7 +9,7 @@
     tools:context=".LoginActivity">
 
     <EditText
-        android:id="@+id/emailText"
+        android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
@@ -19,7 +19,7 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/passText"
+        android:id="@+id/txtPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -29,7 +29,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/buttonInicioSesion"
+        android:id="@+id/btnInicioSesion"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
         android:layout_marginTop="50dp"

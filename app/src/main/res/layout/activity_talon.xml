@@ -4,24 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFondo"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".TalonActivity"
+    android:background="@color/colorFondo">
 
 
-    <Spinner
-        android:id="@+id/spinnerEstado"
+    <EditText
+        android:id="@+id/txtTalon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        />
+        android:ems="10"
+        android:layout_marginTop="200dp"
+        android:textColor="@color/colorTexto"
+        android:inputType="textPersonName"
+        android:hint="Talon" />
 
     <Button
-        android:id="@+id/btnSeleccionar"
+        android:id="@+id/btnCargarDatos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccionar"
         android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
-        android:textColor="@color/colorTexto"/>
+        android:textColor="@color/colorTexto"
+        android:text="Cargar" />
+
+
 </LinearLayout>

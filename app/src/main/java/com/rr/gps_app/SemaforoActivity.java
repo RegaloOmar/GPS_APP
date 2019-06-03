@@ -17,7 +17,7 @@ public class SemaforoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_semaforo);
 
-        btn_Camara = (Button) findViewById(R.id.btn_Camara);
+        btn_Camara = (Button) findViewById(R.id.btnCamara);
 
 
 
