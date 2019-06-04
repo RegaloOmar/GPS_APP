@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i;
-                i =  new Intent(MainActivity.this, TransportistaActivity.class);
+                i =  new Intent(MainActivity.this, TalonActivity.class);
                 startActivity(i);
             }
         });
