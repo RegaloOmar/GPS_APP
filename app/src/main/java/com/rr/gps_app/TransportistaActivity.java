@@ -17,7 +17,7 @@ public class TransportistaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transportista);
 
-        btn_Siguiente = (Button) findViewById(R.id.btnSiguiente);
+        btn_Siguiente = (Button) findViewById(R.id.btnSemaforo);
 
 
 

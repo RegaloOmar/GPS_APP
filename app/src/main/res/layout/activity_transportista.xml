@@ -67,12 +67,12 @@
 
 
     <Button
-        android:id="@+id/btnSiguiente"
+        android:id="@+id/btnSemaforo"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
         android:gravity="center"
-        android:text="Siguiente" />
+        android:text="Semaforo" />
 </LinearLayout>

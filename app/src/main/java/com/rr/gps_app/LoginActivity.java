@@ -41,11 +41,11 @@ public class LoginActivity extends AppCompatActivity {
                                                @Override
                                                public void onClick(View v) {
 
-                                                   ejecutarServicio("http://192.168.64.2:8080/Developer/Insertar_usuario.php");
+                                                   //ejecutarServicio("http://192.168.64.2:8080/Developer/Insertar_usuario.php");
 
-                                                   //Intent i;
-                                                   //i =  new Intent(LoginActivity.this, MainActivity.class);
-                                                   // startActivity(i);
+                                                   Intent i;
+                                                   i =  new Intent(LoginActivity.this, MainActivity.class);
+                                                   startActivity(i);
                                                }
                                            }
 

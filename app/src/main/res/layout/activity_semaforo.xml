@@ -58,4 +58,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Camara" />
+
+    <Button
+        android:id="@+id/btnIncidencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/colorTexto"
+        android:background="@color/colorBoton"
+        android:text="Incidencias" />
 </LinearLayout>
