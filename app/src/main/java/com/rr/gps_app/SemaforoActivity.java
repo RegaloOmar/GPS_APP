@@ -18,6 +18,9 @@ public class SemaforoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_semaforo);
 
+        getSupportActionBar().setTitle("Semaforo");
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         btn_Camara = (Button) findViewById(R.id.btnCamara);
 
 

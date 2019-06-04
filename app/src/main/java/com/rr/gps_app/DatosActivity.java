@@ -15,6 +15,9 @@ public class DatosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos);
 
+        getActionBar().setTitle("Datos del Talon");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         btn_Semforo = (Button)findViewById(R.id.btnSemaforo);
         btn_Semforo.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -17,6 +17,9 @@ public class TalonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_talon);
 
+        getActionBar().setTitle("Talon");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         TalonText = (EditText) findViewById(R.id.txtTalon);
 
         btn_CargarDatos = (Button)findViewById(R.id.btnCargarDatos);

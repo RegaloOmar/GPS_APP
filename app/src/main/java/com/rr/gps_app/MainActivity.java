@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("Cedis");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btn_Seleccionar = (Button) findViewById(R.id.btnSeleccionar);
 
 
