@@ -10,11 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
  public class CamaraActivity extends AppCompatActivity {
 
     private Button btn_Camara;
-    private ImageView foto;
+    private ImageView foto1, foto2, foto3, foto4;
     final static int cons = 0;
     Bitmap bmp;
 
@@ -45,7 +46,6 @@ import android.widget.ImageView;
 
     private void initCamara() {
 
-
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(i, cons);
         /*btn_Camara.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +68,24 @@ import android.widget.ImageView;
      protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
          if(resultCode == Activity.RESULT_OK ){
-             Bundle ext = data.getExtras();
-             bmp = (Bitmap)ext.get("data");
-             foto.setImageBitmap(bmp );
+             if(foto1 == null){
+                 Bundle ext = data.getExtras();
+                 bmp = (Bitmap)ext.get("data");
+                 foto1.setImageBitmap(bmp);
+             }else if(foto2 == null){
+                 Bundle ext = data.getExtras();
+                 bmp = (Bitmap)ext.get("data");
+                 foto2.setImageBitmap(bmp);
+             }else if(foto3 == null){
+                 Bundle ext = data.getExtras();
+                 bmp = (Bitmap)ext.get("data");
+                 foto3.setImageBitmap(bmp);
+             }else if(foto4 == null) {
+                 Bundle ext = data.getExtras();
+                 bmp = (Bitmap) ext.get("data");
+                 foto4.setImageBitmap(bmp);
+             }
+
          }
      }
  }
