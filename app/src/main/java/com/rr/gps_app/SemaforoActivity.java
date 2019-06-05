@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class SemaforoActivity extends AppCompatActivity {
 
-    private Button btn_Camara;
+    private Button btn_Evidencia;
     private Button btn_Incidencias;
 
 
@@ -20,7 +20,7 @@ public class SemaforoActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Semaforo");
 
-        btn_Camara = (Button) findViewById(R.id.btnCamara);
+        btn_Evidencia = (Button) findViewById(R.id.btnEvidencia);
 
 
         btn_Incidencias = (Button) findViewById(R.id.btnIncidencias);
@@ -28,11 +28,11 @@ public class SemaforoActivity extends AppCompatActivity {
 
 
 
-        btn_Camara.setOnClickListener(new View.OnClickListener() {
+        btn_Evidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i;
-                i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                i = new Intent(SemaforoActivity.this, CamaraActivity.class);
                 startActivity(i);
 
             }

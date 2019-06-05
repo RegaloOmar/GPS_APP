@@ -52,13 +52,13 @@
         android:textColor="@color/colorTexto"/>
 
     <Button
-        android:id="@+id/btnCamara"
+        android:id="@+id/btnEvidencia"
         android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Camara" />
+        android:text="Evidencias" />
 
     <Button
         android:id="@+id/btnIncidencias"
