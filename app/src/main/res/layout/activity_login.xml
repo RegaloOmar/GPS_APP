@@ -12,9 +12,11 @@
         android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:hint="Usuario"
         android:textColor="@color/colorTexto"
-        android:layout_marginTop="250dp"
+        android:backgroundTint="@color/colorHint"
+        android:textColorHint="@color/colorHint"
         android:ems="10"
         android:inputType="textEmailAddress" />
 
@@ -23,9 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:ems="10"
         android:textColor="@color/colorTexto"
+        android:backgroundTint="@color/colorHint"
         android:hint="Password"
+        android:textColorHint="@color/colorHint"
+        android:ems="10"
         android:inputType="textPassword" />
 
     <Button

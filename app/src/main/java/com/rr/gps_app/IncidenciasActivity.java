@@ -10,8 +10,7 @@ public class IncidenciasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incidencias);
 
-        getActionBar().setTitle("Incidencias");
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Incidencias");
 
     }
 }

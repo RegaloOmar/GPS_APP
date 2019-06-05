@@ -4,25 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/BackTheme"
     android:background="@color/colorFondo"
+    android:theme="@style/AppTheme"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
 
     <Spinner
-        android:id="@+id/spinnerEstado"
+        android:id="@+id/spinnerCedis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        />
+        android:backgroundTint="@color/colorHint"
+        android:layout_marginTop="200dp"
+        android:foregroundTint="@color/colorTexto"
+        android:pointerIcon="arrow" />
 
     <Button
         android:id="@+id/btnSeleccionar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccionar"
-        android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
-        android:textColor="@color/colorTexto"/>
+        android:text="Seleccionar"
+        android:textColor="@color/colorTexto"
+        android:layout_marginTop="50dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="409dp" />
 </LinearLayout>

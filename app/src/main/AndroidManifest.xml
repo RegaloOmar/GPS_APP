@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IncidenciasActivity" android:parentActivityName=".SemaforoActivity"></activity>
+        <activity android:name=".IncidenciasActivity" android:parentActivityName=".SemaforoActivity"/>
         <activity android:name=".DatosActivity" android:parentActivityName=".TalonActivity" />
         <activity android:name=".TalonActivity" android:parentActivityName=".MainActivity" />
         <activity android:name=".SemaforoActivity" android:parentActivityName=".DatosActivity"/>
