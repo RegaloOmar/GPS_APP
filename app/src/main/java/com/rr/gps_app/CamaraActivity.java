@@ -23,14 +23,24 @@ import android.widget.ImageView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camara);
 
+        //Iniciar la camara cuando se abra el activity
+        initCamara();
+
         btn_Camara = (Button) findViewById(R.id.btnCamara);
 
         foto = (ImageView) findViewById(R.id.image1);
 
         getSupportActionBar().setTitle("Camara");
+
+        btn_Camara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(i);
+            }
+        });
         
-        //Iniciar la camara cuando se abra el activity
-        initCamara();
+
     }
 
     private void initCamara() {
