@@ -27,10 +27,10 @@ public class SemaforoActivity extends AppCompatActivity {
 
     private Button btn_Evidencia,btn_Incidencias,btn_Estatus;
     private Switch gSwitch,rSwitch,bSwitch,ySwitch;
-    private String state = "0";
+    String state ;
     String talon;
     SessionManager sessionManager;
-    String URL = "http://rrdevsolutions.com/cdm/master/request/insertStatus.php";
+    String URL = "https://rrdevsolutions.com/cdm/master/request/insertStatus.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,7 @@ public class SemaforoActivity extends AppCompatActivity {
                 }
             }
         });
+
 
         ySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -113,23 +114,8 @@ public class SemaforoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-
-                if (state.equals("1"))
-                {
-                    gSwitch.toggle();
-                }else if (state.equals("2"))
-                {
-                    ySwitch.toggle();
-                }else if(state.equals("3"))
-                {
-                    rSwitch.toggle();
-                }else if(state.equals("4"))
-                {
-                    bSwitch.toggle();
-                }
-
                 semaforo(URL);
-
+               // switchReturn();
             }
         });
 
@@ -162,13 +148,15 @@ public class SemaforoActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response)
             {
-                Toast.makeText(getApplicationContext(),"Se han insertado datos",Toast.LENGTH_LONG);
+
+                Toast.makeText(getApplicationContext(),"Se han insertado datos",Toast.LENGTH_LONG).show();
+                switchReturn();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
             }
         })
         {
@@ -200,6 +188,24 @@ public class SemaforoActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void switchReturn()
+    {
+
+        if (state.equals("1"))
+        {
+            gSwitch.toggle();
+        }else if (state.equals("2"))
+        {
+            ySwitch.toggle();
+        }else if(state.equals("3"))
+        {
+            rSwitch.toggle();
+        }else if(state.equals("4"))
+        {
+            bSwitch.toggle();
         }
     }
 }
