@@ -35,6 +35,9 @@ public class DatosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos);
 
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+
         user = getIntent().getStringExtra("datosUsuario");
         canal = getIntent().getStringExtra("datosCanal");
 

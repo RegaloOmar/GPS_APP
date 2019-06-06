@@ -23,11 +23,15 @@ public class SemaforoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_semaforo);
 
         getSupportActionBar().setTitle("Semaforo");
+        sessionManager = new SessionManager(SemaforoActivity.this);
+        sessionManager.checkLogin();
 
         btn_Evidencia = (Button) findViewById(R.id.btnEvidencia);
 
 
         btn_Incidencias = (Button) findViewById(R.id.btnIncidencias);
+
+
 
 
 

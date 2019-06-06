@@ -15,12 +15,10 @@ public class IncidenciasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incidencias);
 
-        sessionManager = new SessionManager(this);
-
-        sessionManager = new SessionManager(this);
-        sessionManager.checkLogin();
-
         getSupportActionBar().setTitle("Incidencias");
+
+        sessionManager = new SessionManager(IncidenciasActivity.this);
+        sessionManager.checkLogin();
 
     }
 
