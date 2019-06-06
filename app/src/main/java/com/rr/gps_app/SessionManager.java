@@ -61,9 +61,10 @@ public class SessionManager
 
     public void logout()
     {
-        editor.clear();
+        editor.clear().apply();
         editor.commit();
         Intent i = new Intent(context, LoginActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(i);
         ((MainActivity) context).finish();
     }

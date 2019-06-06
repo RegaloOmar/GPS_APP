@@ -17,6 +17,9 @@ public class IncidenciasActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(this);
 
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+
         getSupportActionBar().setTitle("Incidencias");
 
     }
