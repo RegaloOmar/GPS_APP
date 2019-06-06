@@ -8,11 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class SemaforoActivity extends AppCompatActivity {
 
     private Button btn_Evidencia;
     private Button btn_Incidencias;
+    String talon;
     SessionManager sessionManager;
 
 
@@ -24,9 +26,11 @@ public class SemaforoActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Semaforo");
 
+        talon = getIntent().getStringExtra("talon");
+
+        Toast.makeText(getApplicationContext(),talon,Toast.LENGTH_LONG).show();
+
         btn_Evidencia = (Button) findViewById(R.id.btnEvidencia);
-
-
         btn_Incidencias = (Button) findViewById(R.id.btnIncidencias);
 
 
