@@ -40,6 +40,8 @@
         android:layout_marginTop="50dp"
         android:text="Igual o Mayor a la hora de la cita" />
 
+
+
     <Switch
         android:id="@+id/switchBlue"
         android:layout_width="match_parent"
@@ -57,7 +59,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Estatus"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="120dp"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"/>
 

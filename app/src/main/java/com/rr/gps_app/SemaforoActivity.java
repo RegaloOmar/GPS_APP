@@ -1,5 +1,6 @@
 package com.rr.gps_app;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class SemaforoActivity extends AppCompatActivity {
     String state ;
     String talon;
     SessionManager sessionManager;
+    private ProgressDialog pDialog;
     String URL = "https://rrdevsolutions.com/cdm/master/request/insertStatus.php";
 
     @Override
@@ -207,5 +209,15 @@ public class SemaforoActivity extends AppCompatActivity {
         {
             bSwitch.toggle();
         }
+    }
+
+    //Metodo para crear dialogos al momento de hacer cambios
+    public void dialog()
+    {
+        pDialog = new ProgressDialog(SemaforoActivity.this);
+        pDialog.setMessage("Guardando Estatus...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(true);
+        pDialog.show();
     }
 }

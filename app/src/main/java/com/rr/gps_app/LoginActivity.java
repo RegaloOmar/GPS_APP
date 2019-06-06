@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    //Metodo para cambiar de actividad y crear dialogos al momento de hacer cambios
+    //Metodo para crear dialogos al momento de hacer cambios
     public void dialog()
     {
         pDialog = new ProgressDialog(LoginActivity.this);
