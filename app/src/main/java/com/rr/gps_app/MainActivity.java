@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
 
+
         txtUser = findViewById(R.id.txtUsuario);
         txtCanal = findViewById(R.id.txtCanal);
         btn_Seleccionar = findViewById(R.id.btnSeleccionar);
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_logout:
-                logout();
+                sessionManager.logout();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

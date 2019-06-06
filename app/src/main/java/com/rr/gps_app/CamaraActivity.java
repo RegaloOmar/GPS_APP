@@ -21,6 +21,7 @@ import android.widget.Toast;
     final static int cons = 0;
     public int contador = 0;
     Bitmap bmp;
+     SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +96,7 @@ import android.widget.Toast;
 
          switch (item.getItemId()){
              case R.id.menu_logout:
-                 logout();
+                 sessionManager.logout();
                  return true;
              default:
                  return super.onOptionsItemSelected(item);
