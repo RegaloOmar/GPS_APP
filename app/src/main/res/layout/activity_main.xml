@@ -10,23 +10,25 @@
     tools:context=".MainActivity">
 
 
-    <Spinner
-        android:id="@+id/spinnerCedis"
+    <TextView
+        android:id="@+id/txtCedis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorHint"
         android:layout_marginTop="200dp"
-        android:foregroundTint="@color/colorTexto"
-        android:pointerIcon="arrow" />
+        android:textColor="@color/colorTexto"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:text="Cedis" />
 
     <Button
         android:id="@+id/btnSeleccionar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
-        android:text="Seleccionar"
+        android:text="Siguiente"
         android:textColor="@color/colorTexto"
         android:layout_marginTop="50dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="409dp" />
+
 </LinearLayout>

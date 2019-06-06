@@ -54,20 +54,6 @@ import android.widget.Toast;
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         contador++;
         startActivityForResult(i, cons);
-
-        /*btn_Camara.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int id;
-                id = v.getId();
-                switch(id){
-                    case R.id.btnCamara:
-                        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivityForResult(i, cons);
-                        break;
-                }
-            }
-        });*/
     }
 
 
@@ -93,9 +79,6 @@ import android.widget.Toast;
                 foto4.setImageBitmap(bmp);
                 contador = 0;
             }
-
-
-
          }
      }
  }
