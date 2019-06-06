@@ -17,6 +17,7 @@ import android.widget.Toast;
     private Button btn_Camara;
     private ImageView foto1, foto2, foto3, foto4;
     final static int cons = 0;
+    public int contador = 0;
     Bitmap bmp;
 
     @Override
@@ -29,7 +30,10 @@ import android.widget.Toast;
 
         btn_Camara = (Button) findViewById(R.id.btnCamara);
 
-        foto = (ImageView) findViewById(R.id.image1);
+        foto1 = (ImageView) findViewById(R.id.image1);
+        foto2 = (ImageView) findViewById(R.id.image2);
+        foto3 = (ImageView) findViewById(R.id.image3);
+        foto4 = (ImageView) findViewById(R.id.image4);
 
         getSupportActionBar().setTitle("Camara");
 
@@ -37,7 +41,8 @@ import android.widget.Toast;
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivity(i);
+                contador++;
+                startActivityForResult(i, cons);
             }
         });
         
@@ -47,7 +52,9 @@ import android.widget.Toast;
     private void initCamara() {
 
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        contador++;
         startActivityForResult(i, cons);
+
         /*btn_Camara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,23 +75,26 @@ import android.widget.Toast;
      protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
          if(resultCode == Activity.RESULT_OK ){
-             if(foto1 == null){
-                 Bundle ext = data.getExtras();
-                 bmp = (Bitmap)ext.get("data");
-                 foto1.setImageBitmap(bmp);
-             }else if(foto2 == null){
-                 Bundle ext = data.getExtras();
-                 bmp = (Bitmap)ext.get("data");
-                 foto2.setImageBitmap(bmp);
-             }else if(foto3 == null){
+            if(contador == 1){
+                Bundle ext = data.getExtras();
+                bmp = (Bitmap)ext.get("data");
+                foto1.setImageBitmap(bmp);
+            }else if(contador == 2){
+                Bundle ext = data.getExtras();
+                bmp = (Bitmap)ext.get("data");
+                foto2.setImageBitmap(bmp);
+            }else if(contador == 3){
                  Bundle ext = data.getExtras();
                  bmp = (Bitmap)ext.get("data");
                  foto3.setImageBitmap(bmp);
-             }else if(foto4 == null) {
-                 Bundle ext = data.getExtras();
-                 bmp = (Bitmap) ext.get("data");
-                 foto4.setImageBitmap(bmp);
-             }
+             }else if(contador == 4){
+                Bundle ext = data.getExtras();
+                bmp = (Bitmap)ext.get("data");
+                foto4.setImageBitmap(bmp);
+                contador = 0;
+            }
+
+
 
          }
      }
