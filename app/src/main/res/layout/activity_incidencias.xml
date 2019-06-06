@@ -17,6 +17,7 @@
         android:backgroundTint="@color/colorHint"
         android:hint="Incidencias"
         android:textColorHint="@color/colorHint"
+        android:textColor="@color/colorHint"
         android:gravity="start|top"
         android:layout_marginTop="100dp"
         android:inputType="textMultiLine" />

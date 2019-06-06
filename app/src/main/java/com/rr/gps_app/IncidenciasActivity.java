@@ -47,7 +47,6 @@ public class IncidenciasActivity extends AppCompatActivity {
         edtIncidencia = findViewById(R.id.txtIncidencias);
         btnIncidencia = findViewById(R.id.btnMandar);
 
-        Toast.makeText(getApplicationContext(),talon,Toast.LENGTH_LONG).show();
 
         btnIncidencia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +55,7 @@ public class IncidenciasActivity extends AppCompatActivity {
                 incidencia(URL);
                 dialog();
                 Intent i = new Intent(IncidenciasActivity.this, SemaforoActivity.class);
+                i.putExtra("talon",talon);
                 startActivity(i);
             }
         });
@@ -72,7 +72,7 @@ public class IncidenciasActivity extends AppCompatActivity {
             public void onResponse(String response)
             {
 
-                //Toast.makeText(getApplicationContext(),"Se han insertado datos",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Se han insertado datos",Toast.LENGTH_LONG).show();
             }
         }, new Response.ErrorListener() {
             @Override
