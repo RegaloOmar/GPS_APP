@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">https://rrdevsolutions.com/</domain>
+        <pin-set>
+            <pin digest="SHA-256">cOXKBZwT331ennEJ432Qb9N/bLa6C7RQkTFx9Y0v59A=</pin>
+            <pin digest="SHA-256">3kcNJzkUJ1RqMXJzFX4Zxux5WfETK+uL6Viq9lJNn4o=</pin>
+        </pin-set>
+    </domain-config>
+</network-security-config>
