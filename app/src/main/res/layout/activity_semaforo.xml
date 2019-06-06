@@ -11,33 +11,41 @@
 
 
     <Switch
-        android:id="@+id/Semaforo1"
+        android:id="@+id/switchGreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="@color/semaforoVerde"
         android:layout_marginTop="50dp"
         android:text="Dos Horas antes de la cita" />
 
     <Switch
-        android:id="@+id/Semaforo2"
+        android:id="@+id/switchYellow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="@color/semaforoAmarrillo"
         android:layout_marginTop="50dp"
         android:text="Una Hora antes de la cita" />
 
     <Switch
-        android:id="@+id/Semaforo3"
+        android:id="@+id/switchRed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="@color/semafororRojo"
         android:layout_marginTop="50dp"
         android:text="Igual o Mayor a la hora de la cita" />
 
     <Switch
-        android:id="@+id/Semaforo4"
+        android:id="@+id/switchBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="@color/semaforoAzul"
         android:layout_marginTop="50dp"
         android:text="Arribo a tiempo" />
@@ -46,6 +54,8 @@
         android:id="@+id/btnEstatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="Estatus"
         android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
@@ -58,6 +68,8 @@
         android:textColor="@color/colorTexto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="Evidencias" />
 
     <Button
@@ -65,6 +77,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="@color/colorTexto"
         android:background="@color/colorBoton"
         android:text="Incidencias" />
