@@ -25,7 +25,7 @@ public class DatosActivity extends AppCompatActivity {
 
     private Button btn_Semforo,btn_talon;
     private TextView edtTalon,edtPlacas,edtSello,edtTransp,edtNet,edtFecha,edtConfir;
-    String user, canal;
+    String user, canal, talon;
     SessionManager sessionManager;
     private RequestQueue requestQueue;
     private static String URL = "";
@@ -58,6 +58,8 @@ public class DatosActivity extends AppCompatActivity {
         btn_Semforo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                talon = edtTalon.getText().toString();
+                Toast.makeText(getApplicationContext(),talon,Toast.LENGTH_LONG).show();
                 Intent i;
                 i = new Intent(DatosActivity.this, SemaforoActivity.class);
                 startActivity(i);

@@ -19,7 +19,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:textColor="@color/colorBoton"
-        android:text="TextView" />
+        android:text="" />
 
     <TextView
         android:id="@+id/textPlacas"
@@ -31,7 +31,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:textColor="@color/colorBoton"
-        android:text="TextView" />
+        android:text="" />
 
     <TextView
         android:id="@+id/textSello"
@@ -43,7 +43,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:textColor="@color/colorBoton"
-        android:text="TextView" />
+        android:text="" />
 
     <TextView
         android:id="@+id/textTransp"
@@ -55,7 +55,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:textColor="@color/colorBoton"
-        android:text="TextView" />
+        android:text="" />
 
     <TextView
         android:id="@+id/textNet"
@@ -67,7 +67,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:textColor="@color/colorBoton"
-        android:text="TextView" />
+        android:text="" />
 
     <TextView
         android:id="@+id/textFecha"
@@ -79,7 +79,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:textColor="@color/colorBoton"
-        android:text="TextView" />
+        android:text="" />
 
     <TextView
         android:id="@+id/textConfim"
@@ -91,7 +91,7 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:textColor="@color/colorBoton"
-        android:text="TextView" />
+        android:text="" />
 
     <Button
         android:id="@+id/btnTalon"
