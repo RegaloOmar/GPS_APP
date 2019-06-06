@@ -13,7 +13,6 @@ public class TalonActivity extends AppCompatActivity {
 
     private EditText TalonText;
     private Button btn_CargarDatos;
-    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +46,15 @@ public class TalonActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_logout:
-                sessionManager.logout();
+                logout();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-
+    private void logout() {
+        Intent i = new Intent(TalonActivity.this, LoginActivity.class);
+        startActivity(i);
+    }
 }

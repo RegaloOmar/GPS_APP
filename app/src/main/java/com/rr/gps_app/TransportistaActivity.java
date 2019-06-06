@@ -10,7 +10,6 @@ import android.widget.Button;
 public class TransportistaActivity extends AppCompatActivity {
 
     private Button btn_Siguiente;
-    SessionManager sessionManager;
 
 
     @Override
