@@ -14,7 +14,7 @@
         android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="260dp"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -39,9 +39,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
-        android:text="Seleccionar"
+        android:text="Mostrar Datos"
         android:textColor="@color/colorTexto"
         android:layout_marginTop="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="409dp" />
 </LinearLayout>

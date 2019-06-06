@@ -99,6 +99,8 @@
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
         android:layout_marginTop="180dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="Talon"
         android:textColor="@color/colorTexto" />
 
@@ -108,6 +110,8 @@
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="Semaforo"
         android:textColor="@color/colorTexto" />
 

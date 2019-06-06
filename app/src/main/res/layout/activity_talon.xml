@@ -12,10 +12,12 @@
 
     <EditText
         android:id="@+id/txtTalon"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="250dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Talon"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="@color/colorTexto"
         android:backgroundTint="@color/colorHint"
         android:textColorHint="@color/colorHint"
@@ -26,7 +28,9 @@
         android:id="@+id/btnCargarDatos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
         android:text="Cargar" />
