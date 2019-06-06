@@ -12,13 +12,13 @@
     <EditText
         android:id="@+id/txtIncidencias"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:ems="10"
         android:backgroundTint="@color/colorHint"
         android:hint="Incidencias"
         android:textColorHint="@color/colorHint"
         android:gravity="start|top"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:inputType="textMultiLine" />
 
     <Button
@@ -27,6 +27,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorTexto"
         android:background="@color/colorBoton"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         android:text="Mandar" />
 </LinearLayout>
