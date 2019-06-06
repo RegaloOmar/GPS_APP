@@ -171,6 +171,7 @@ import java.util.Map;
          String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
          return  imagenString;
 
+
      }
 
 
