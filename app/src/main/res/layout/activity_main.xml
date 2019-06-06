@@ -9,24 +9,35 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <Spinner
-        android:id="@+id/spinnerCedis"
+    <TextView
+        android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorHint"
         android:layout_marginTop="200dp"
-        android:foregroundTint="@color/colorTexto"
-        android:pointerIcon="arrow" />
+        android:textSize="20dp"
+        android:textColor="@color/colorBoton"
+        android:gravity="center"
+        android:text="Usuario" />
 
+    <TextView
+        android:id="@+id/txtCanal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/colorBoton"
+        android:text="Localidad" />
     <Button
         android:id="@+id/btnSeleccionar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBoton"
-        android:text="Seleccionar"
-        android:textColor="@color/colorTexto"
         android:layout_marginTop="50dp"
+        android:background="@color/colorBoton"
+        android:text="Mostrar Datos"
+        android:textColor="@color/colorTexto"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="409dp" />
+
+
 </LinearLayout>

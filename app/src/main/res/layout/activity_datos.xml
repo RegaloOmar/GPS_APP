@@ -9,28 +9,107 @@
     android:theme="@style/AppTheme"
     tools:context=".DatosActivity">
 
-    <android.support.v7.widget.CardView
+    <TextView
+        android:id="@+id/textTalon"
         android:layout_width="match_parent"
-        android:layout_height="627dp"
-        >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="TextView" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="627dp"
-            android:background="@color/colorFondo">
+    <TextView
+        android:id="@+id/textPlacas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="TextView" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
-    </android.support.v7.widget.CardView>
+    <TextView
+        android:id="@+id/textSello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textTransp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textNet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textConfim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btnTalon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBoton"
+        android:layout_marginTop="180dp"
+        android:text="Talon"
+        android:textColor="@color/colorTexto" />
 
     <Button
         android:id="@+id/btnSemaforo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
+        android:layout_marginTop="50dp"
         android:text="Semaforo"
         android:textColor="@color/colorTexto" />
+
+
 </LinearLayout>
