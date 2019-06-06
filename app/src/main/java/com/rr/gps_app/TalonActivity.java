@@ -22,6 +22,9 @@ public class TalonActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Talon");
 
+        sessionManager = new SessionManager(TalonActivity.this);
+        sessionManager.checkLogin();
+
         TalonText = (EditText) findViewById(R.id.txtTalon);
 
         btn_CargarDatos = (Button)findViewById(R.id.btnCargarDatos);
