@@ -5,10 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class IncidenciasActivity extends AppCompatActivity {
 
+
+    private Button btnIncidencia;
     SessionManager sessionManager;
+    String talon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +25,22 @@ public class IncidenciasActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(IncidenciasActivity.this);
         sessionManager.checkLogin();
+
+        talon = getIntent().getStringExtra("talon");
+
+        btnIncidencia = findViewById(R.id.btnMandar);
+
+        Toast.makeText(getApplicationContext(),talon,Toast.LENGTH_LONG).show();
+
+        btnIncidencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(IncidenciasActivity.this, SemaforoActivity.class);
+                startActivity(i);
+            }
+        });
+
+
 
     }
 

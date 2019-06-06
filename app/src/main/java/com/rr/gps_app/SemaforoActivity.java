@@ -137,6 +137,7 @@ public class SemaforoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent;
                 intent = new Intent(SemaforoActivity.this, IncidenciasActivity.class);
+                intent.putExtra("talon",talon);
                 startActivity(intent);
             }
         });
