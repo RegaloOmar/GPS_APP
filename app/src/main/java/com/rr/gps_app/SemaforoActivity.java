@@ -8,14 +8,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SemaforoActivity extends AppCompatActivity {
 
-    private Button btn_Evidencia;
-    private Button btn_Incidencias;
+    private Button btn_Evidencia,btn_Incidencias,btn_Estatus;
+    private Switch gSwitch,rSwitch,bSwitch,ySwitch;
+    private String state = "0";
+    String talon;
     SessionManager sessionManager;
-
-
+    String URL = "http://rrdevsolutions.com/cdm/master/request/insertStatus.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +41,97 @@ public class SemaforoActivity extends AppCompatActivity {
         sessionManager = new SessionManager(SemaforoActivity.this);
         sessionManager.checkLogin();
 
-        btn_Evidencia = (Button) findViewById(R.id.btnEvidencia);
+        talon = getIntent().getStringExtra("talon");
+
+        btn_Estatus = findViewById(R.id.btnEstatus);
+        btn_Evidencia = findViewById(R.id.btnEvidencia);
+        btn_Incidencias = findViewById(R.id.btnIncidencias);
+        gSwitch = findViewById(R.id.switchGreen);
+        rSwitch = findViewById(R.id.switchRed);
+        ySwitch = findViewById(R.id.switchYellow);
+        bSwitch = findViewById(R.id.switchBlue);
 
 
-        btn_Incidencias = (Button) findViewById(R.id.btnIncidencias);
+        gSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if (isChecked)
+                {
+                    state = "1";
+                }else
+                {
+                    state = "0";
+                }
+            }
+        });
+
+        ySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if (isChecked)
+                {
+                    state = "2";
+                }else
+                {
+                    state = "0";
+                }
+            }
+        });
+
+        rSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if (isChecked)
+                {
+                    state = "3";
+                }else
+                {
+                    state = "0";
+                }
+            }
+        });
+
+        bSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if (isChecked)
+                {
+                    state = "4";
+                }else
+                {
+                    state = "0";
+                }
+            }
+        });
 
 
+        btn_Estatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
 
+                if (state.equals("1"))
+                {
+                    gSwitch.toggle();
+                }else if (state.equals("2"))
+                {
+                    ySwitch.toggle();
+                }else if(state.equals("3"))
+                {
+                    rSwitch.toggle();
+                }else if(state.equals("4"))
+                {
+                    bSwitch.toggle();
+                }
 
+                semaforo(URL);
 
+            }
+        });
 
         btn_Evidencia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +153,36 @@ public class SemaforoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void semaforo(String URL)
+    {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response)
+            {
+                Toast.makeText(getApplicationContext(),"Se han insertado datos",Toast.LENGTH_LONG);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG);
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError
+            {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("talon",talon);
+                params.put("state",state);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
     @Override

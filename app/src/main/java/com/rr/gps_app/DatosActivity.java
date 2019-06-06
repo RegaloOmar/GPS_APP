@@ -62,9 +62,9 @@ public class DatosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 talon = edtTalon.getText().toString();
-                Toast.makeText(getApplicationContext(),talon,Toast.LENGTH_LONG).show();
                 Intent i;
                 i = new Intent(DatosActivity.this, SemaforoActivity.class);
+                i.putExtra("talon",talon);
                 startActivity(i);
             }
         });
