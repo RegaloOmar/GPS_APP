@@ -7,6 +7,8 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -80,5 +82,28 @@ import android.widget.Toast;
                 contador = 0;
             }
          }
+     }
+
+     @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+         getMenuInflater().inflate(R.menu.menu, menu);
+         return super.onCreateOptionsMenu(menu);
+     }
+
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+
+         switch (item.getItemId()){
+             case R.id.menu_logout:
+                 logout();
+                 return true;
+             default:
+                 return super.onOptionsItemSelected(item);
+         }
+     }
+
+     private void logout() {
+         Intent i = new Intent(CamaraActivity.this, LoginActivity.class);
+         startActivity(i);
      }
  }
