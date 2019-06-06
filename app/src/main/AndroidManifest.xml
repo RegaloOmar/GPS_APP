@@ -28,7 +28,7 @@
             android:parentActivityName=".TalonActivity" />
         <activity
             android:name=".TalonActivity"
-            android:parentActivityName=".DatosActivity" />
+            android:parentActivityName=".DatosActivity"  />
         <activity
             android:name=".SemaforoActivity"
             android:parentActivityName=".DatosActivity" />
