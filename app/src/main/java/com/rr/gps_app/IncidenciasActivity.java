@@ -8,6 +8,8 @@ import android.view.MenuItem;
 
 public class IncidenciasActivity extends AppCompatActivity {
 
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +30,12 @@ public class IncidenciasActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_logout:
-                logout();
+                sessionManager.logout();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void logout() {
-        Intent i = new Intent(IncidenciasActivity.this, LoginActivity.class);
-        startActivity(i);
-    }
+
 }

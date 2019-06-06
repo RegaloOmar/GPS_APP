@@ -13,6 +13,7 @@ public class SemaforoActivity extends AppCompatActivity {
 
     private Button btn_Evidencia;
     private Button btn_Incidencias;
+    SessionManager sessionManager;
 
 
     @Override
@@ -63,15 +64,11 @@ public class SemaforoActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_logout:
-                logout();
+                sessionManager.logout();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void logout() {
-        Intent i = new Intent(SemaforoActivity.this, LoginActivity.class);
-        startActivity(i);
-    }
 }

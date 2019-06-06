@@ -15,6 +15,7 @@ public class DatosActivity extends AppCompatActivity {
     private Button btn_Semforo,btn_talon;
     private TextView edtUser, edtCanal;
     String user, canal;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,15 +67,10 @@ public class DatosActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_logout:
-                logout();
+                sessionManager.logout();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void logout() {
-        Intent i = new Intent(DatosActivity.this, LoginActivity.class);
-        startActivity(i);
     }
 }
