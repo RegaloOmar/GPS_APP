@@ -9,13 +9,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class DatosActivity extends AppCompatActivity {
 
     private Button btn_Semforo,btn_talon;
-    private TextView edtUser, edtCanal;
+    private TextView edtTalon,edtPlacas,edtSello,edtTransp,edtNet,edtFecha,edtConfir;
     String user, canal;
     SessionManager sessionManager;
+    private RequestQueue requestQueue;
+    private static String URL = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +40,19 @@ public class DatosActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Datos del Talon");
 
-        edtUser = findViewById(R.id.textTalon);
-        edtCanal = findViewById(R.id.textPlacas);
+        URL = "https://rrdevsolutions.com/cdm/master/request/request.php?usuario="+user;
+
+        searchInfo(URL);
+
+        edtTalon = findViewById(R.id.textTalon);
+        edtPlacas = findViewById(R.id.textPlacas);
+        edtSello = findViewById(R.id.textSello);
+        edtTransp = findViewById(R.id.textTransp);
+        edtNet = findViewById(R.id.textNet);
+        edtFecha = findViewById(R.id.textFecha);
+        edtConfir = findViewById(R.id.textConfim);
         btn_Semforo = findViewById(R.id.btnSemaforo);
         btn_talon = findViewById(R.id.btnTalon);
-
-        edtUser.setText(user);
-        edtCanal.setText(canal);
 
 
         btn_Semforo.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +73,39 @@ public class DatosActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void searchInfo(String URL)
+    {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        edtTalon.setText(jsonObject.getString("Talon_Localidad"));
+                        edtPlacas.setText(jsonObject.getString("Placas"));
+                        edtSello.setText(jsonObject.getString("Sello"));
+                        edtTransp.setText(jsonObject.getString("Transportista"));
+                        edtNet.setText(jsonObject.getString("Net"));
+                        edtFecha.setText(jsonObject.getString("Fecha_Cita"));
+                        edtConfir.setText(jsonObject.getString("Confirmacion"));
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Error de Conexion",Toast.LENGTH_LONG).show();
+            }
+        }
+        );
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
     }
 
     @Override
