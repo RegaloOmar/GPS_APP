@@ -130,9 +130,4 @@ public class DatosActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-    private void logout() {
-        Intent i = new Intent(DatosActivity.this, LoginActivity.class);
-        startActivity(i);
-    }
 }

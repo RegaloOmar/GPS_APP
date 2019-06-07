@@ -8,12 +8,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class TalonActivity extends AppCompatActivity {
 
-    private EditText TalonText;
-    private Button btn_CargarDatos;
+    private EditText txt_Talon;
+    private TextView txt_Placas,txt_Sello, txt_Transportista, txt_Net, txt_FechaCita, txt_Confirmacion;
+    private Button btn_BuscarTalon;
     SessionManager sessionManager;
+    private RequestQueue requestQueue;
+    private static String URL = "";
+    String talon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +42,60 @@ public class TalonActivity extends AppCompatActivity {
         sessionManager = new SessionManager(TalonActivity.this);
         sessionManager.checkLogin();
 
-        TalonText = (EditText) findViewById(R.id.txtTalon);
+        txt_Talon = (EditText) findViewById(R.id.txtTalon);
+        txt_Placas = (TextView) findViewById(R.id.txtPlacasTalon);
+        txt_Sello = (TextView) findViewById(R.id.txtSelloTalon);
+        txt_Transportista = (TextView) findViewById(R.id.txtTranspTalon);
+        txt_Net = (TextView) findViewById(R.id.txtNetTalon);
+        txt_FechaCita = (TextView) findViewById(R.id.txtFechaTalon);
+        txt_Confirmacion = (TextView) findViewById(R.id.txtConfimTalon);
 
-        btn_CargarDatos = (Button)findViewById(R.id.btnCargarDatos);
 
-        btn_CargarDatos.setOnClickListener(new View.OnClickListener() {
+
+        btn_BuscarTalon = (Button)findViewById(R.id.btnBuscarTalon);
+
+        btn_BuscarTalon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i;
-                i = new Intent(TalonActivity.this, DatosActivity.class);
-                startActivity(i);
+                talon = txt_Talon.getText().toString();
+                URL = "https://rrdevsolutions.com/cdm/master/request/requestTalon.php?talon="+talon;
+                searchInfo(URL);
             }
         });
+    }
+
+
+    private void searchInfo(String URL)
+    {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        txt_Talon.setText(jsonObject.getString("Talon_Localidad"));
+                        txt_Placas.setText(jsonObject.getString("Placas"));
+                        txt_Sello.setText(jsonObject.getString("Sello"));
+                        txt_Transportista.setText(jsonObject.getString("Transportista"));
+                        txt_Net.setText(jsonObject.getString("Net"));
+                        txt_FechaCita.setText(jsonObject.getString("Fecha_Cita"));
+                        txt_Confirmacion.setText(jsonObject.getString("Confirmacion"));
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Error de Conexion",Toast.LENGTH_LONG).show();
+            }
+        }
+        );
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
     }
 
     @Override
@@ -55,10 +114,5 @@ public class TalonActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void logout() {
-        Intent i = new Intent(TalonActivity.this, LoginActivity.class);
-        startActivity(i);
     }
 }

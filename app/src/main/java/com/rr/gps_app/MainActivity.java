@@ -90,9 +90,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-    private void logout() {
-        Intent i = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(i);
-    }
 }
