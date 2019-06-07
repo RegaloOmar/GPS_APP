@@ -26,7 +26,7 @@ public class TalonActivity extends AppCompatActivity {
 
     private EditText txt_Talon;
     private TextView txt_Placas,txt_Sello, txt_Transportista, txt_Net, txt_FechaCita, txt_Confirmacion;
-    private Button btn_BuscarTalon;
+    private Button btn_BuscarTalon, btn_Semaforo;
     SessionManager sessionManager;
     private RequestQueue requestQueue;
     private static String URL = "";
@@ -53,6 +53,7 @@ public class TalonActivity extends AppCompatActivity {
 
 
         btn_BuscarTalon = (Button)findViewById(R.id.btnBuscarTalon);
+        btn_Semaforo = (Button) findViewById(R.id.btnSemaforoTalon);
 
         btn_BuscarTalon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +61,14 @@ public class TalonActivity extends AppCompatActivity {
                 talon = txt_Talon.getText().toString();
                 URL = "https://rrdevsolutions.com/cdm/master/request/requestTalon.php?talon="+talon;
                 searchInfo(URL);
+            }
+        });
+
+        btn_Semaforo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TalonActivity.this, SemaforoActivity.class);
+                startActivity(i);
             }
         });
     }
