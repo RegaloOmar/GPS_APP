@@ -51,6 +51,7 @@ import java.util.Map;
      StringRequest stringRequest;
      RequestQueue request;
      ProgressDialog progreso;
+     String talon;
 
 
     @Override
@@ -58,7 +59,7 @@ import java.util.Map;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camara);
 
-
+        talon = getIntent().getStringExtra("talon");
 
         btn_Camara = (Button) findViewById(R.id.btnCamara);
         btn_CargarFotos = (Button) findViewById(R.id.btnCargarFotos);
@@ -192,7 +193,7 @@ import java.util.Map;
         progreso.setMessage("Cargando...");
         progreso.show();
 
-         String url = "https://rrdevsolutions.com/ScriptsPHP/pruebaFoto.php";
+         String url = "https://rrdevsolutions.com/cdm/master/request/requestPhoto.php";
 
          stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
              @Override
@@ -224,6 +225,7 @@ import java.util.Map;
                  Map<String, String> parametros = new HashMap<>();
                  parametros.put("nombre", nombre);
                  parametros.put("imagen", imagen);
+                 parametros.put("talon", talon);
                  return parametros;
              }
          };
