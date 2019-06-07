@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -29,7 +31,9 @@ public class IncidenciasActivity extends AppCompatActivity {
     private EditText edtIncidencia;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
-    String talon;
+    String talon,resIncidencia;
+    final private int REQUEST_CODE_ASK_PERMISSION = 111;
+    private Spinner incidencias;
     String URL = "https://rrdevsolutions.com/cdm/master/request/insertIncidencia.php";
 
     @Override
@@ -43,15 +47,18 @@ public class IncidenciasActivity extends AppCompatActivity {
         sessionManager.checkLogin();
 
         talon = getIntent().getStringExtra("talon");
-
+        incidencias = findViewById(R.id.spIncidencias);
         edtIncidencia = findViewById(R.id.txtIncidencias);
         btnIncidencia = findViewById(R.id.btnMandar);
+
+
 
 
         btnIncidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+                spinIncidencia();
                 incidencia(URL);
                 dialog();
                 Intent i = new Intent(IncidenciasActivity.this, SemaforoActivity.class);
@@ -60,7 +67,10 @@ public class IncidenciasActivity extends AppCompatActivity {
             }
         });
 
+        String [] opciones = {"LIBERADO AL 100%","LIBERADO CON DEVOLUCION","PROCESO DE DESCARGA","AUSENCIA","LIBERADO CON FALTANTE"};
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opciones);
+        incidencias.setAdapter(adapter);
 
     }
 
@@ -88,11 +98,34 @@ public class IncidenciasActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("talon",talon);
                 params.put("incidencia",edtIncidencia.getText().toString());
+                params.put("tipoIncidencia",resIncidencia);
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    public void spinIncidencia()
+    {
+        String seleccion = incidencias.getSelectedItem().toString();
+
+        if (seleccion.equals("LIBERADO AL 100%"))
+        {
+            resIncidencia = "1";
+        }else if (seleccion.equals("LIBERADO CON DEVOLUCION"))
+        {
+            resIncidencia = "2";
+        }else if (seleccion.equals("PROCESO DE DESCARGA"))
+        {
+            resIncidencia = "3";
+        }else if (seleccion.equals("AUSENCIA"))
+        {
+            resIncidencia = "4";
+        }else if (seleccion.equals("LIBERADO CON FALTANTE"))
+        {
+            resIncidencia = "5";
+        }
     }
 
     @Override
