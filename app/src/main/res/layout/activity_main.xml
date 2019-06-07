@@ -9,12 +9,24 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="Usuario" />
+
 
     <TextView
         android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="30dp"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -22,11 +34,24 @@
         android:textColor="@color/colorBoton"
         android:text="TextView" />
 
+
+    <TextView
+        android:id="@+id/txtLocalidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBoton"
+        android:text="Localidad" />
+
     <TextView
         android:id="@+id/txtCanal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -41,7 +66,7 @@
         android:background="@color/colorBoton"
         android:text="Mostrar Datos"
         android:textColor="@color/colorTexto"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="190dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         tools:layout_editor_absoluteX="0dp"
