@@ -1,8 +1,12 @@
 package com.rr.gps_app;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +24,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +39,7 @@ public class SemaforoActivity extends AppCompatActivity {
     String talon;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
+    private FusedLocationProviderClient fusedLocationClient;
     String URL = "https://rrdevsolutions.com/cdm/master/request/insertStatus.php";
 
     @Override
@@ -43,6 +51,8 @@ public class SemaforoActivity extends AppCompatActivity {
         sessionManager = new SessionManager(SemaforoActivity.this);
         sessionManager.checkLogin();
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
         talon = getIntent().getStringExtra("talon");
 
         btn_Estatus = findViewById(R.id.btnEstatus);
@@ -52,6 +62,8 @@ public class SemaforoActivity extends AppCompatActivity {
         rSwitch = findViewById(R.id.switchRed);
         ySwitch = findViewById(R.id.switchYellow);
         bSwitch = findViewById(R.id.switchBlue);
+
+        upLocation();
 
 
         gSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -213,6 +225,30 @@ public class SemaforoActivity extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(),"Elegir un Status",Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void upLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                // Got last known location. In some rare situations this can be null.
+                if (location != null) {
+                    Toast.makeText(getApplicationContext(), "Latitud: " + location.getLatitude() + "Longitud: "
+                            + location.getLongitude(), Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
     }
 
     //Metodo para crear dialogos al momento de hacer cambios
