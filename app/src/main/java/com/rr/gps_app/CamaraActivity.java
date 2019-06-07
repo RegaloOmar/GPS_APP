@@ -65,7 +65,7 @@ import java.util.Map;
         setContentView(R.layout.activity_camara);
 
         //Iniciar la camara cuando se abra el activity
-        //initCamara();
+        initCamara();
 
         btn_Camara = (Button) findViewById(R.id.btnCamara);
         btn_CargarFotos = (Button) findViewById(R.id.btnCargarFotos);
@@ -74,7 +74,7 @@ import java.util.Map;
         foto2 = (ImageView) findViewById(R.id.image2);
         foto3 = (ImageView) findViewById(R.id.image3);
         foto4 = (ImageView) findViewById(R.id.image4);
-        request = Volley.newRequestQueue(this);
+        request = Volley.newRequestQueue(CamaraActivity.this);
 
         getSupportActionBar().setTitle("Camara");
 
@@ -104,13 +104,9 @@ import java.util.Map;
             public void onClick(DialogInterface dialog, int i) {
                 if (opciones[i].equals("Tomar Foto")){
                     //aqui se activa la camara ahora
-
-                    abrirCamara();
-                    /*Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     contador++;
-                    startActivityForResult(intent, cons);*/
-
-
+                    startActivityForResult(intent, cons);
 
 
                 }else{
@@ -137,22 +133,6 @@ import java.util.Map;
         }
 
 
-        if (isCreada == true){
-            //Consecutivo captura fecha y hora para ponersela de nombre
-            Long consecutivo = System.currentTimeMillis()/1000;
-            //Le añade la extencion .jpg al nombre
-            String nombre = consecutivo.toString()+".jpg";
-            //Ruta de almacenamiento para guardar la imagen
-            path = Environment.getExternalStorageDirectory()+File.separator+DIRECTORIO_IMAGEN
-                    +File.separator+nombre; // Ruta de almacenamiento apra la foto
-
-            fileImagen = new File(path);
-            //Abrir camara
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(fileImagen));
-            contador++;
-            startActivityForResult(intent, COD_FOTO);
-        }
 
      }
 
@@ -168,26 +148,13 @@ import java.util.Map;
      protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
 
-
          switch (requestCode){
              case COD_SELECCIONA:
                  Uri miPath=data.getData();
                  foto1.setImageURI(miPath);
                  break;
-             case COD_FOTO:
-                 MediaScannerConnection.scanFile(CamaraActivity.this, new String[]{path}, null,
-                         new MediaScannerConnection.OnScanCompletedListener() {
-                             @Override
-                             public void onScanCompleted(String path, Uri uri) {
-                                 Log.i("Path",""+path);
-                             }
-                         });
-
-                 bmp = BitmapFactory.decodeFile(path);
-                 foto1.setImageBitmap(bmp);
-                 break;
          }
-         /*if(resultCode == Activity.RESULT_OK ){
+         if(resultCode == Activity.RESULT_OK ){
             if(contador == 1){
                 Bundle ext = data.getExtras();
                 bmp = (Bitmap)ext.get("data");
@@ -207,7 +174,7 @@ import java.util.Map;
                 foto4.setImageBitmap(bmp);
                 contador = 0;
             }
-         }*/
+         }
      }
 
      @Override
@@ -230,7 +197,7 @@ import java.util.Map;
 
      private void cargarWebService(){
 
-        progreso=new ProgressDialog(this);
+        progreso=new ProgressDialog(CamaraActivity.this);
         progreso.setMessage("Cargando...");
         progreso.show();
 
@@ -242,7 +209,7 @@ import java.util.Map;
 
                  progreso.hide();
 
-                 if(response.equalsIgnoreCase("registra")) {
+                 if(response.trim().equalsIgnoreCase("registra")) {
                      Toast.makeText(CamaraActivity.this, "Se registro con exito", Toast.LENGTH_SHORT).show();
                  } else {
                      Toast.makeText(CamaraActivity.this, "No se registro", Toast.LENGTH_SHORT).show();
@@ -257,8 +224,9 @@ import java.util.Map;
          }){
              @Override
              protected Map<String, String> getParams() throws AuthFailureError {
+                 Long consecutivo = System.currentTimeMillis()/1000;
 
-                 String nombre = "Foto1";
+                 String nombre = consecutivo.toString();
                  String imagen1 = convertirImagen1(bmpFoto1);
 
 
