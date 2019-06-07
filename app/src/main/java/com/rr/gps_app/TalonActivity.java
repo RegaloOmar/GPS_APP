@@ -68,6 +68,7 @@ public class TalonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(TalonActivity.this, SemaforoActivity.class);
+                i.putExtra("talon",talon);
                 startActivity(i);
             }
         });
