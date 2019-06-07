@@ -35,8 +35,7 @@ public class SemaforoActivity extends AppCompatActivity {
 
     private Button btn_Evidencia,btn_Incidencias,btn_Estatus;
     private Switch gSwitch,rSwitch,bSwitch,ySwitch;
-    String state ;
-    String talon;
+    String state,longitud,latitud,talon ;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
     private FusedLocationProviderClient fusedLocationClient;
@@ -62,8 +61,6 @@ public class SemaforoActivity extends AppCompatActivity {
         rSwitch = findViewById(R.id.switchRed);
         ySwitch = findViewById(R.id.switchYellow);
         bSwitch = findViewById(R.id.switchBlue);
-
-        upLocation();
 
 
         gSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -167,6 +164,7 @@ public class SemaforoActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Se han insertado datos",Toast.LENGTH_LONG).show();
                 switchReturn();
+                upLocation();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -243,8 +241,9 @@ public class SemaforoActivity extends AppCompatActivity {
             public void onSuccess(Location location) {
                 // Got last known location. In some rare situations this can be null.
                 if (location != null) {
-                    Toast.makeText(getApplicationContext(), "Latitud: " + location.getLatitude() + "Longitud: "
-                            + location.getLongitude(), Toast.LENGTH_LONG).show();
+
+                    longitud = String.valueOf(location.getLongitude());
+                    latitud = String.valueOf(location.getLatitude());
 
                 }
             }
