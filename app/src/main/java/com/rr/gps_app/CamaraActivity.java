@@ -33,6 +33,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,16 +42,9 @@ import java.util.Map;
 
      private static final int COD_SELECCIONA = 10;
      private static final int COD_FOTO = 20;
-     private static final String CARPETA_PRINCIPAL = "misImagenesApp/";
-     private static final String CARPETA_IMAGEN = "imagenes";
-     private static final String DIRECTORIO_IMAGEN = CARPETA_PRINCIPAL + CARPETA_IMAGEN;
-     private String path;
-     File fileImagen;
      Bitmap bmp, bmpFoto1;
-
-
-     private Button btn_Camara, btn_CargarFotos;
-     private ImageView foto1, foto2, foto3, foto4;
+     private Button btn_Camara, btn_CargarFotos, btn_Cancelar;
+     private ImageView foto1;
      final static int cons = 0;
      public int contador = 0;
      SessionManager sessionManager;
@@ -64,16 +58,13 @@ import java.util.Map;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camara);
 
-        //Iniciar la camara cuando se abra el activity
-        initCamara();
+
 
         btn_Camara = (Button) findViewById(R.id.btnCamara);
         btn_CargarFotos = (Button) findViewById(R.id.btnCargarFotos);
+        btn_Cancelar = (Button) findViewById(R.id.btnCancelar);
 
         foto1 = (ImageView) findViewById(R.id.image1);
-        foto2 = (ImageView) findViewById(R.id.image2);
-        foto3 = (ImageView) findViewById(R.id.image3);
-        foto4 = (ImageView) findViewById(R.id.image4);
         request = Volley.newRequestQueue(CamaraActivity.this);
 
         getSupportActionBar().setTitle("Camara");
@@ -81,7 +72,8 @@ import java.util.Map;
         btn_Camara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarDialogoOpciones();
+                //mostrarDialogoOpciones();
+                initCamara();
             }
         });
 
@@ -91,11 +83,24 @@ import java.util.Map;
                 cargarWebService();
             }
         });
+
+        btn_Cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                regresarHome();
+            }
+        });
         
 
     }
 
-    private void mostrarDialogoOpciones(){
+     private void regresarHome() {
+
+        Intent i = new Intent(CamaraActivity.this, MainActivity.class);
+        startActivity(i);
+     }
+
+     private void mostrarDialogoOpciones(){
         final CharSequence[] opciones = {"Tomar Foto", "Elegir de la Galeria", "Cancelar"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Elige una Opción");
@@ -104,14 +109,11 @@ import java.util.Map;
             public void onClick(DialogInterface dialog, int i) {
                 if (opciones[i].equals("Tomar Foto")){
                     //aqui se activa la camara ahora
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    contador++;
-                    startActivityForResult(intent, cons);
-
+                    initCamara();
 
                 }else{
                     if(opciones[i].equals("Elegir de la Galeria")){
-
+                        contador++;
                         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.setType("image/");
                         startActivityForResult(intent.createChooser(intent, "Seleccione"),COD_SELECCIONA);
@@ -123,18 +125,6 @@ import java.util.Map;
         });
         builder.show();
     }
-
-     private void abrirCamara() {
-        File miFile = new File(Environment.getExternalStorageDirectory(),DIRECTORIO_IMAGEN);
-        boolean isCreada=miFile.exists();
-
-        if(isCreada==false){
-            isCreada=miFile.mkdirs();
-        }
-
-
-
-     }
 
      private void initCamara() {
 
@@ -148,30 +138,31 @@ import java.util.Map;
      protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
 
-         switch (requestCode){
+         /*switch (requestCode){
              case COD_SELECCIONA:
                  Uri miPath=data.getData();
-                 foto1.setImageURI(miPath);
+                 if(contador==1){
+                     foto1.setImageURI(miPath);
+                     try {
+                         bmpFoto1=MediaStore.Images.Media.getBitmap(CamaraActivity.this.getContentResolver(), miPath);
+                         foto1.setImageBitmap(bmpFoto1);
+                     } catch (IOException e) {
+                         e.printStackTrace();
+                     }
+                 }
+
                  break;
-         }
+             case COD_FOTO:
+                 //Iniciar la camara cuando se abra el activity
+                 initCamara();
+                 break;
+         }*/
          if(resultCode == Activity.RESULT_OK ){
             if(contador == 1){
                 Bundle ext = data.getExtras();
                 bmp = (Bitmap)ext.get("data");
                 bmpFoto1 = bmp;
                 foto1.setImageBitmap(bmp);
-            }else if(contador == 2){
-                Bundle ext = data.getExtras();
-                bmp = (Bitmap)ext.get("data");
-                foto2.setImageBitmap(bmp);
-            }else if(contador == 3){
-                 Bundle ext = data.getExtras();
-                 bmp = (Bitmap)ext.get("data");
-                 foto3.setImageBitmap(bmp);
-             }else if(contador == 4){
-                Bundle ext = data.getExtras();
-                bmp = (Bitmap)ext.get("data");
-                foto4.setImageBitmap(bmp);
                 contador = 0;
             }
          }
@@ -226,13 +217,13 @@ import java.util.Map;
              protected Map<String, String> getParams() throws AuthFailureError {
                  Long consecutivo = System.currentTimeMillis()/1000;
 
-                 String nombre = "Hee Hee"+consecutivo.toString();
-                 String imagen1 = convertirImagen1(bmpFoto1);
+                 String nombre = "Foto1_"+consecutivo.toString();
+                 String imagen = convertirImagen1(bmpFoto1);
 
 
                  Map<String, String> parametros = new HashMap<>();
                  parametros.put("nombre", nombre);
-                 parametros.put("imagen", imagen1);
+                 parametros.put("imagen", imagen);
                  return parametros;
              }
          };
@@ -244,8 +235,6 @@ import java.util.Map;
          bmpFoto1.compress(Bitmap.CompressFormat.JPEG,100,array);
          byte[] imagenByte = array.toByteArray();
          String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
-
-
          return imagenString;
 
      }

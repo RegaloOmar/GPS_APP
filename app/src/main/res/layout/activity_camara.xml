@@ -11,36 +11,19 @@
     <ImageView
         android:id="@+id/image1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <ImageView
-        android:id="@+id/image2"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <ImageView
-        android:id="@+id/image3"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <ImageView
-        android:id="@+id/image4"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="403dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <Button
         android:id="@+id/btnCamara"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Seleccionar Imagenes" />
+        android:text="Tomar FOto" />
 
     <Button
         android:id="@+id/btnCargarFotos"
@@ -51,6 +34,17 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:text="Cargar imagenes" />
+        android:text="Cargar imagen" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:background="@color/colorBoton"
+        android:textColor="@color/colorTexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Cancelar" />
 
 </LinearLayout>
