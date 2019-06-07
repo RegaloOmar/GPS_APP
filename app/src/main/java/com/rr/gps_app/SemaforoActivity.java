@@ -159,7 +159,7 @@ public class SemaforoActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Elegir un Status",Toast.LENGTH_LONG).show();
             }
         })
         {
@@ -209,6 +209,8 @@ public class SemaforoActivity extends AppCompatActivity {
         }else if(state.equals("4"))
         {
             bSwitch.toggle();
+        }else{
+            Toast.makeText(getApplicationContext(),"Elegir un Status",Toast.LENGTH_LONG).show();
         }
     }
 
