@@ -226,7 +226,7 @@ import java.util.Map;
              protected Map<String, String> getParams() throws AuthFailureError {
                  Long consecutivo = System.currentTimeMillis()/1000;
 
-                 String nombre = consecutivo.toString();
+                 String nombre = "Hee Hee"+consecutivo.toString();
                  String imagen1 = convertirImagen1(bmpFoto1);
 
 
