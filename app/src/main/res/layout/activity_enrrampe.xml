@@ -80,7 +80,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnActualizarEnrrampe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"

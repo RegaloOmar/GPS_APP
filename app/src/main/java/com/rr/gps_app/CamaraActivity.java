@@ -61,12 +61,12 @@ import java.util.Map;
 
         talon = getIntent().getStringExtra("talon");
 
-        btn_Camara = (Button) findViewById(R.id.btnCamara);
-        btn_CargarFotos = (Button) findViewById(R.id.btnCargarFotos);
-        btn_Cancelar = (Button) findViewById(R.id.btnCancelar);
-        btn_Enrrampe = (Button) findViewById(R.id.btnEnrrampe);
+        btn_Camara =  findViewById(R.id.btnCamara);
+        btn_CargarFotos =  findViewById(R.id.btnCargarFotos);
+        btn_Cancelar =  findViewById(R.id.btnCancelar);
+        btn_Enrrampe =  findViewById(R.id.btnEnrrampe);
 
-        foto1 = (ImageView) findViewById(R.id.image1);
+        foto1 =  findViewById(R.id.image1);
         request = Volley.newRequestQueue(CamaraActivity.this);
 
         getSupportActionBar().setTitle("Camara");
