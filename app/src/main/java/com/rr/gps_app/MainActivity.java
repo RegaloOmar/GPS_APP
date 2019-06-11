@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
         HashMap<String,String> user = sessionManager.getUSerDetail();
         final String mUSer = user.get(sessionManager.USER);
         final String mCanal = user.get(sessionManager.IDCANAL);
-        String mLocalidad = user.get(sessionManager.LOCALIDAD);
+        String mDestino = user.get(sessionManager.DESTINO);
 
         txtUser.setText(mUSer);
-        txtCanal.setText(mLocalidad);
+        txtCanal.setText(mDestino);
 
 
 

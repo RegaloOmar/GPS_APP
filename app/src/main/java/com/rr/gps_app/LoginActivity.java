@@ -90,14 +90,14 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject object = jsonArray.getJSONObject(i);
                             String user = object.getString("Usuario").trim();
                             String idCanal = object.getString("IdCanal").trim();
-                            String localidad = object.getString("Localidad").trim();
+                            String destino = object.getString("Destino").trim();
 
-                            sessionManager.createSession(user,idCanal,localidad);
+                            sessionManager.createSession(user,idCanal,destino);
 
                             Intent iw = new Intent(LoginActivity.this, MainActivity.class);
                             iw.putExtra("Usuario",user);
                             iw.putExtra("IdCanal",idCanal);
-                            iw.putExtra("Localidad",localidad);
+                            iw.putExtra("Destino",destino);
                             startActivity(iw);
                             finish();
 

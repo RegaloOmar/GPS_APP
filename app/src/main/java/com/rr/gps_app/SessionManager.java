@@ -17,7 +17,7 @@ public class SessionManager
     private static final String LOGIN = "IS_LOGIN";
     public static final String USER = "USER";
     public static final String IDCANAL = "IDCANAL";
-    public static final String LOCALIDAD = "LOCALIDAD";
+    public static final String DESTINO = "DESTINO";
 
     public SessionManager(Context context)
     {
@@ -26,12 +26,12 @@ public class SessionManager
         editor = sharedPreferences.edit();
     }
 
-    public void createSession(String user, String idCanal, String localidad)
+    public void createSession(String user, String idCanal, String destino)
     {
         editor.putBoolean(LOGIN,true);
         editor.putString(USER,user);
         editor.putString(IDCANAL,idCanal);
-        editor.putString(LOCALIDAD,localidad);
+        editor.putString(DESTINO,destino);
         editor.apply();
     }
 
@@ -55,7 +55,7 @@ public class SessionManager
         HashMap<String, String> user = new HashMap<>();
         user.put(USER, sharedPreferences.getString(USER,null));
         user.put(IDCANAL,sharedPreferences.getString(IDCANAL,null));
-        user.put(LOCALIDAD,sharedPreferences.getString(LOCALIDAD,null));
+        user.put(DESTINO,sharedPreferences.getString(DESTINO,null));
         return user;
     }
 
