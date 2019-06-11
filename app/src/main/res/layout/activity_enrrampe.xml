@@ -52,7 +52,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/New"
+            android:id="@+id/textTime"
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -63,7 +63,7 @@
             android:backgroundTint="@color/colorHint"
             android:textColorHint="@color/colorHint"
             android:textColor="@color/colorHint"
-            android:hint="dd/mm/aaaa"
+            android:hint="HH:mm"
             android:inputType="date" >
         </EditText>
 
@@ -73,9 +73,9 @@
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="46dp"
-            android:contentDescription="dd/mm/aaaa"
+            android:contentDescription="00:00"
             android:cropToPadding="true"
-            android:src="@drawable/ic_datepicker" />
+            android:src="@drawable/ic_timepicker" />
 
     </LinearLayout>
 
