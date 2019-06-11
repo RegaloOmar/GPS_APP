@@ -43,7 +43,7 @@ import java.util.Map;
      private static final int COD_SELECCIONA = 10;
      private static final int COD_FOTO = 20;
      Bitmap bmp, bmpFoto1;
-     private Button btn_Camara, btn_CargarFotos, btn_Cancelar;
+     private Button btn_Camara, btn_CargarFotos, btn_Cancelar, btn_Enrrampe;
      private ImageView foto1;
      final static int cons = 0;
      public int contador = 0;
@@ -64,6 +64,7 @@ import java.util.Map;
         btn_Camara = (Button) findViewById(R.id.btnCamara);
         btn_CargarFotos = (Button) findViewById(R.id.btnCargarFotos);
         btn_Cancelar = (Button) findViewById(R.id.btnCancelar);
+        btn_Enrrampe = (Button) findViewById(R.id.btnEnrrampe);
 
         foto1 = (ImageView) findViewById(R.id.image1);
         request = Volley.newRequestQueue(CamaraActivity.this);
@@ -89,6 +90,13 @@ import java.util.Map;
             @Override
             public void onClick(View v) {
                 regresarHome();
+            }
+        });
+
+        btn_Enrrampe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Enrrampe();
             }
         });
         
@@ -238,7 +246,11 @@ import java.util.Map;
          byte[] imagenByte = array.toByteArray();
          String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
          return imagenString;
+     }
 
+     private void Enrrampe(){
+        Intent i = new Intent(CamaraActivity.this, EnrrampeActivity.class);
+        startActivity(i);
      }
 
 
