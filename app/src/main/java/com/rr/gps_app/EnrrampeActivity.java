@@ -16,15 +16,17 @@ public class EnrrampeActivity extends AppCompatActivity {
     private Button btn_FechaEnrrampe;
     private EditText txt_FechaEnrrampe;
     private int dia, mes, año;
+    String talon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enrrampe);
 
-        txt_FechaEnrrampe = (EditText) findViewById(R.id.txtFechaEnrrampe);
+        talon = getIntent().getStringExtra("talon");
+        txt_FechaEnrrampe = findViewById(R.id.txtFechaEnrrampe);
 
-        btn_FechaEnrrampe = (Button) findViewById(R.id.btnFechaEnrrampe);
+        btn_FechaEnrrampe = findViewById(R.id.btnFechaEnrrampe);
 
         btn_FechaEnrrampe.setOnClickListener(new View.OnClickListener() {
             @Override

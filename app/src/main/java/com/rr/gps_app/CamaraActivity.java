@@ -250,6 +250,7 @@ import java.util.Map;
 
      private void Enrrampe(){
         Intent i = new Intent(CamaraActivity.this, EnrrampeActivity.class);
+        i.putExtra("talon",talon);
         startActivity(i);
      }
 
