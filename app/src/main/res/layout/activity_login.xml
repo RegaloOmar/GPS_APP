@@ -12,7 +12,7 @@
         android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:hint="Usuario"
         android:textColor="@color/colorTexto"
         android:backgroundTint="@color/colorHint"

@@ -40,6 +40,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorTexto"
         android:background="@color/colorBoton"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:text="Mandar" />
 </LinearLayout>
