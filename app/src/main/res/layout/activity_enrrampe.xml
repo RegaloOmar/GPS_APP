@@ -8,54 +8,86 @@
     android:background="@color/colorFondo"
     tools:context=".EnrrampeActivity">
 
-    <EditText
-        android:id="@+id/txtFechaEnrrampe"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorTexto"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Fecha"
-        android:backgroundTint="@color/colorHint"
-        android:textColorHint="@color/colorHint"
-        android:text="" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnFechaEnrrampe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/colorBoton"
-        android:textColor="@color/colorTexto"
-        android:layout_marginTop="20dp"
-        android:text="Fecha" />
+        <EditText
+            android:id="@+id/fechaNacimiento"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:backgroundTint="@color/colorHint"
+            android:textColorHint="@color/colorHint"
+            android:textColor="@color/colorHint"
+            android:hint="dd/mm/aaaa"
+            android:inputType="date" >
+        </EditText>
 
-    <EditText
-        android:id="@+id/txtHoraEnrrampe"
-        android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="46dp"
+            android:contentDescription="dd/mm/aaaa"
+            android:cropToPadding="true"
+            android:src="@drawable/ic_datepicker" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:ems="10"
-        android:textColorHint="@color/colorHint"
-        android:hint="Hora"
-        android:backgroundTint="@color/colorHint"
-        android:inputType="time" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/New"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:backgroundTint="@color/colorHint"
+            android:textColorHint="@color/colorHint"
+            android:textColor="@color/colorHint"
+            android:hint="dd/mm/aaaa"
+            android:inputType="date" >
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="46dp"
+            android:contentDescription="dd/mm/aaaa"
+            android:cropToPadding="true"
+            android:src="@drawable/ic_datepicker" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
-        android:text="Guardar" />
+        android:text="Actualizar Enrrampe" />
 
 </LinearLayout>

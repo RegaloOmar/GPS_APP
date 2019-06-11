@@ -37,6 +37,17 @@
         android:text="Cargar imagen" />
 
     <Button
+        android:id="@+id/btnEnrrampe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBoton"
+        android:textColor="@color/colorTexto"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Enrrampe" />
+
+    <Button
         android:id="@+id/btnCancelar"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
@@ -47,15 +58,6 @@
         android:layout_marginTop="20dp"
         android:text="Finalizar" />
 
-    <Button
-        android:id="@+id/btnEnrrampe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBoton"
-        android:textColor="@color/colorTexto"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Enrrampe" />
+
 
 </LinearLayout>
