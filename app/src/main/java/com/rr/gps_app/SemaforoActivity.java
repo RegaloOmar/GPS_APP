@@ -35,7 +35,7 @@ public class SemaforoActivity extends AppCompatActivity {
 
     private Button btn_Evidencia,btn_Incidencias,btn_Estatus;
     private Switch gSwitch,rSwitch,bSwitch,ySwitch;
-    String state,talon ;
+    String state,talon,userSend,mUSer ;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
     private FusedLocationProviderClient fusedLocationClient;
@@ -50,7 +50,11 @@ public class SemaforoActivity extends AppCompatActivity {
         sessionManager = new SessionManager(SemaforoActivity.this);
         sessionManager.checkLogin();
 
+        HashMap<String,String> user = sessionManager.getUSerDetail();
+         mUSer = user.get(sessionManager.USER);
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
 
         talon = getIntent().getStringExtra("talon");
 
@@ -62,6 +66,7 @@ public class SemaforoActivity extends AppCompatActivity {
         rSwitch = findViewById(R.id.switchRed);
         ySwitch = findViewById(R.id.switchYellow);
         bSwitch = findViewById(R.id.switchBlue);
+
 
 
         gSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -123,16 +128,18 @@ public class SemaforoActivity extends AppCompatActivity {
 
 
 
-
         btn_Estatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
 
                 semaforo(URL);
+
                // switchReturn();
             }
         });
+
+
 
         btn_Evidencia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,10 +168,13 @@ public class SemaforoActivity extends AppCompatActivity {
     private void semaforo(String URL)
     {
 
+        userSend = mUSer;
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response)
             {
+
 
                 Toast.makeText(getApplicationContext(),"Se han insertado datos",Toast.LENGTH_LONG).show();
 
@@ -184,12 +194,14 @@ public class SemaforoActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("talon",talon);
                 params.put("state",state);
+                params.put("us",userSend);
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
