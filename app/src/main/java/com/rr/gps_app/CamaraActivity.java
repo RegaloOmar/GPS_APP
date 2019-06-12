@@ -242,7 +242,7 @@ import java.util.Map;
 
      private String convertirImagen1(Bitmap bmpFoto1) {
          ByteArrayOutputStream array = new ByteArrayOutputStream();
-         bmpFoto1.compress(Bitmap.CompressFormat.JPEG,100,array);
+         bmpFoto1.compress(Bitmap.CompressFormat.JPEG,1000,array);
          byte[] imagenByte = array.toByteArray();
          String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
          return imagenString;

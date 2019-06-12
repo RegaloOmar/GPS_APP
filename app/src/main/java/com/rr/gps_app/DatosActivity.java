@@ -36,101 +36,163 @@ public class DatosActivity extends AppCompatActivity {
     SessionManager sessionManager;
     private RequestQueue requestQueue;
     private static String URL = "";
-    //a list to store all the products
-    List<Datos> datosList;
 
-    //the recyclerview
     RecyclerView recyclerView;
+    RecyclerViewAdaptador adaptador;
+    List<DatosModelo> datosModeloList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos);
 
-        sessionManager = new SessionManager(this);
+        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user;
+
+        sessionManager = new SessionManager(DatosActivity.this);
         sessionManager.checkLogin();
+
+
+        datosModeloList = new ArrayList<>();
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewDatos);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(DatosActivity.this));
+
+        cargarDatos();
+        //searchInfo(URL);
+
+
+
+
+
 
         user = getIntent().getStringExtra("datosUsuario");
         canal = getIntent().getStringExtra("datosCanal");
 
         getSupportActionBar().setTitle("Datos del Talon");
 
-        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user;
+
 
         //searchInfo(URL);
 
+        /*edtTalon = findViewById(R.id.textTalon);
+        edtPlacas = findViewById(R.id.textPlacas);
+        edtSello = findViewById(R.id.textSello);
+        edtTransp = findViewById(R.id.textTransp);
+        edtNet = findViewById(R.id.textNet);
+        edtFecha = findViewById(R.id.textFecha);
+        edtConfir = findViewById(R.id.textConfim);
+        btn_Semforo = findViewById(R.id.btnSemaforo);
+        btn_talon = findViewById(R.id.btnTalon);*/
 
-        //getting the recyclerview from xml
-        recyclerView = findViewById(R.id.recylcerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //initializing the productlist
-        datosList = new ArrayList<>();
+        /*btn_Semforo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                talon = edtTalon.getText().toString();
+                Intent i;
+                i = new Intent(DatosActivity.this, SemaforoActivity.class);
+                i.putExtra("talon",talon);
+                startActivity(i);
+            }
+        });
 
-
-        //this method will fetch and parse json
-        //to display it in recyclerview
-        loadDatos();
-
+        btn_talon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it;
+                it = new Intent(DatosActivity.this, TalonActivity.class);
+                startActivity(it);
+            }
+        });*/
 
     }
 
-    private void loadDatos() {
-
-        /*
-         * Creating a String Request
-         * The request type is GET defined by first parameter
-         * The URL is defined in the second parameter
-         * Then we have a Response Listener and a Error Listener
-         * In response listener we will get the JSON response as a String
-         * */
+    private void cargarDatos() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            //converting the string to json array object
-                            JSONArray array = new JSONArray(response);
+                            JSONArray datos = new JSONArray(response);
 
-                            //traversing through all the object
-                            for (int i = 0; i < array.length(); i++) {
 
-                                //getting product object from json array
-                                JSONObject datos = array.getJSONObject(i);
+                            for (int i = 0; i<datos.length(); i++){
+                                JSONObject datosObject = datos.getJSONObject(i);
 
-                                //adding the product to product list
-                                datosList.add(new Datos(
-                                        datos.getString("Talon_Localidad"),
-                                        datos.getString("Placas"),
-                                        datos.getString("Sello"),
-                                        datos.getString("Transportista"),
-                                        datos.getString("Net"),
-                                        datos.getString("Fecha_Cita"),
-                                        datos.getString("Confirmacion"),
-                                        datos.getString("Fecha_Cita_Hora")
-                                ));
+                                String talon = datosObject.getString("Talon_Localidad");
+                                String placas = datosObject.getString("Placas");
+                                String sello = datosObject.getString("Sello");
+                                String transportista = datosObject.getString("Transportista");
+                                String net = datosObject.getString("Net");
+                                String fechaCita = datosObject.getString("Fecha_ Cita");
+                                String confirmacion = datosObject.getString("Confirmacion");
+
+                                DatosModelo datosModelo = new DatosModelo(talon, placas, sello, transportista,
+                                        net, fechaCita, confirmacion);
+                                datosModeloList.add(datosModelo);
+
                             }
+                            adaptador = new RecyclerViewAdaptador(DatosActivity.this, datosModeloList);
+                            recyclerView.setAdapter(adaptador);
 
-                            //creating adapter object and setting it to recyclerview
-                            DatosAdapter adapter = new DatosAdapter(DatosActivity.this, datosList);
-                            recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
                     }
                 },
                 new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(DatosActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
-                    }
-                });
-
-        //adding our stringrequest to queue
+                }
+            });
         Volley.newRequestQueue(this).add(stringRequest);
+
+
     }
 
+    private void searchInfo(String URL)
+    {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        edtTalon.setText(jsonObject.getString("Talon_Localidad"));
+                        edtPlacas.setText(jsonObject.getString("Placas"));
+                        edtSello.setText(jsonObject.getString("Sello"));
+                        edtTransp.setText(jsonObject.getString("Transportista"));
+                        edtNet.setText(jsonObject.getString("Net"));
+                        edtFecha.setText(jsonObject.getString("Fecha_Cita"));
+                        edtConfir.setText(jsonObject.getString("Confirmacion"));
+
+
+
+
+
+
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Error de Conexion",Toast.LENGTH_LONG).show();
+            }
+        }
+        );
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -149,6 +211,4 @@ public class DatosActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }
