@@ -57,9 +57,11 @@ public class DatosActivity extends AppCompatActivity {
         //URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user;
 
         //getting the recyclerview from xml
-        recyclerView = findViewById(R.id.recylcerView);
-        recyclerView.setHasFixedSize(true);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerDatos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+
 
         //initializing the productlist
         datosList = new ArrayList<>();
@@ -104,6 +106,7 @@ public class DatosActivity extends AppCompatActivity {
                             //creating adapter object and setting it to recyclerview
                             DatosAdapter adapter = new DatosAdapter(DatosActivity.this, datosList);
                             recyclerView.setAdapter(adapter);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

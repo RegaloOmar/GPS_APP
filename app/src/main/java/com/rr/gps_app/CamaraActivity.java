@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -34,6 +35,8 @@ import com.android.volley.toolbox.Volley;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,16 +45,23 @@ import java.util.Map;
 
      private static final int COD_SELECCIONA = 10;
      private static final int COD_FOTO = 20;
-     Bitmap bmp, bmpFoto1;
-     private Button btn_Camara, btn_CargarFotos, btn_Cancelar, btn_Enrrampe;
-     private ImageView foto1;
+     Bitmap bmp;
+     private Button btn_Camara, btn_CargarFotos, btn_Cancelar, btn_Enrrampe, btn_Galeria;
+     private ImageView foto;
      final static int cons = 0;
      public int contador = 0;
      SessionManager sessionManager;
      StringRequest stringRequest;
      RequestQueue request;
      ProgressDialog progreso;
-     String talon;
+     String talon, mCurrentPhotoPath;
+
+     private final String CARPETA_PRINCIPAL= "misImagenesAPP/";//directorio principal
+     private final String CARPETA_IMAGEN = "imagenes"; //Donde se guardan las fotos
+     private final String DIRECTORIO_IMAGEN= CARPETA_PRINCIPAL + CARPETA_IMAGEN; //ruta de la carpeta de directorios
+     private String path; //almacena la ruta de la imagen
+     File fileImagen;
+
 
 
     @Override
@@ -65,8 +75,9 @@ import java.util.Map;
         btn_CargarFotos =  findViewById(R.id.btnCargarFotos);
         btn_Cancelar =  findViewById(R.id.btnCancelar);
         btn_Enrrampe =  findViewById(R.id.btnEnrrampe);
+        btn_Galeria = findViewById(R.id.btnGaleria);
 
-        foto1 =  findViewById(R.id.image1);
+        foto =  findViewById(R.id.imageFoto);
         request = Volley.newRequestQueue(CamaraActivity.this);
 
         getSupportActionBar().setTitle("Camara");
@@ -74,8 +85,22 @@ import java.util.Map;
         btn_Camara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //mostrarDialogoOpciones();
-                initCamara();
+                contador++;
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //intent.putExtra(MediaStore.EXTRA_OUTPUT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString());
+                //intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                startActivityForResult(intent, COD_FOTO);
+            }
+        });
+
+        btn_Galeria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contador++;
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType("image/");
+                startActivityForResult(intent.createChooser(intent, "Seleccione"),COD_SELECCIONA);
             }
         });
 
@@ -109,37 +134,37 @@ import java.util.Map;
         startActivity(i);
      }
 
-     private void mostrarDialogoOpciones(){
-        final CharSequence[] opciones = {"Tomar Foto", "Elegir de la Galeria", "Cancelar"};
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Elige una Opción");
-        builder.setItems(opciones, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-                if (opciones[i].equals("Tomar Foto")){
-                    //aqui se activa la camara ahora
-                    initCamara();
-
-                }else{
-                    if(opciones[i].equals("Elegir de la Galeria")){
-                        contador++;
-                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        intent.setType("image/");
-                        startActivityForResult(intent.createChooser(intent, "Seleccione"),COD_SELECCIONA);
-                    }else {
-                        dialog.dismiss();
-                    }
-                }
-            }
-        });
-        builder.show();
-    }
-
      private void initCamara() {
 
-        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        contador++;
-        startActivityForResult(i, cons);
+        File miFile = new File( Environment.getExternalStorageDirectory() , DIRECTORIO_IMAGEN);
+        boolean isCreada = miFile.exists();
+
+        if (isCreada ==false){
+            isCreada=miFile.mkdirs();
+        }else {
+            Long consecutivo = System.currentTimeMillis()/1000;
+            String nombre = consecutivo.toString() + ".jpg";
+
+            //Ruta de almacenamiento
+            path = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()+"/"+nombre;
+
+            //Contruir el archivo
+
+
+            fileImagen = new File(path);
+            Uri photoURI = FileProvider.getUriForFile(CamaraActivity.this, this.getApplicationContext().getPackageName()
+                    + ".my.package.name.provider", fileImagen);
+
+
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            startActivityForResult(intent, COD_FOTO);
+        }
+
+
+
     }
 
 
@@ -147,14 +172,16 @@ import java.util.Map;
      protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
 
-         /*switch (requestCode){
+         switch (requestCode){
              case COD_SELECCIONA:
                  Uri miPath=data.getData();
                  if(contador==1){
-                     foto1.setImageURI(miPath);
+                     foto.setImageURI(miPath);
                      try {
-                         bmpFoto1=MediaStore.Images.Media.getBitmap(CamaraActivity.this.getContentResolver(), miPath);
-                         foto1.setImageBitmap(bmpFoto1);
+                         bmp=null;
+                         bmp=MediaStore.Images.Media.getBitmap(CamaraActivity.this.getContentResolver(), miPath);
+                         foto.setImageBitmap(bmp);
+                         contador=0;
                      } catch (IOException e) {
                          e.printStackTrace();
                      }
@@ -162,18 +189,30 @@ import java.util.Map;
 
                  break;
              case COD_FOTO:
-                 //Iniciar la camara cuando se abra el activity
-                 initCamara();
+
+                 /*MediaScannerConnection.scanFile(CamaraActivity.this, new String[]{path}, null,
+                         new MediaScannerConnection.OnScanCompletedListener() {
+                             @Override
+                             public void onScanCompleted(String path, Uri uri) {
+                                 Log.i("Path", ""+path);
+                             }
+                         });
+
+                 bmp = BitmapFactory.decodeFile(path);
+                 foto.setImageBitmap(bmp);*/
+
+
+
+                     if (contador == 1) {
+                         bmp=null;
+                         Bundle ext = data.getExtras();
+                         bmp = (Bitmap) ext.get("data");
+                         foto.setImageBitmap(bmp);
+                         contador = 0;
+                     }
+
+
                  break;
-         }*/
-         if(resultCode == Activity.RESULT_OK ){
-            if(contador == 1){
-                Bundle ext = data.getExtras();
-                bmp = (Bitmap)ext.get("data");
-                bmpFoto1 = bmp;
-                foto1.setImageBitmap(bmp);
-                contador = 0;
-            }
          }
      }
 
@@ -226,8 +265,8 @@ import java.util.Map;
              protected Map<String, String> getParams() throws AuthFailureError {
                  Long consecutivo = System.currentTimeMillis()/1000;
 
-                 String nombre = "Foto1_"+consecutivo.toString();
-                 String imagen = convertirImagen1(bmpFoto1);
+                 String nombre = "Foto_"+consecutivo.toString();
+                 String imagen = convertirImagen1(bmp);
 
 
                  Map<String, String> parametros = new HashMap<>();
@@ -240,9 +279,9 @@ import java.util.Map;
          request.add(stringRequest);
      }
 
-     private String convertirImagen1(Bitmap bmpFoto1) {
+     private String convertirImagen1(Bitmap bmpFoto) {
          ByteArrayOutputStream array = new ByteArrayOutputStream();
-         bmpFoto1.compress(Bitmap.CompressFormat.JPEG,1000,array);
+         bmpFoto.compress(Bitmap.CompressFormat.PNG,100,array);
          byte[] imagenByte = array.toByteArray();
          String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
          return imagenString;

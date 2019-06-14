@@ -30,7 +30,7 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
     @Override
     public DatosViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.datos_list, null);
+        View view = inflater.inflate(R.layout.recycler_layout, null);
         return new DatosViewHolder(view);
     }
 
@@ -81,16 +81,16 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
         public DatosViewHolder(View itemView) {
             super(itemView);
 
-            textViewTalon = itemView.findViewById(R.id.textTalon);
-            textViewPlacas = itemView.findViewById(R.id.textPlacas);
-            textViewSellos = itemView.findViewById(R.id.textSello);
-            textViewTrans = itemView.findViewById(R.id.textTransportista);
-            textViewNet = itemView.findViewById(R.id.textNet);
-            textViewFechaCita = itemView.findViewById(R.id.textFecha);
-            textViewConfirmacion = itemView.findViewById(R.id.textConfirm);
-            textViewFechaHora = itemView.findViewById(R.id.textHora);
-            btnSemaforo = itemView.findViewById(R.id.btnSemaforo);
-            btnTalon = itemView.findViewById(R.id.btnTalon);
+            textViewTalon = itemView.findViewById(R.id.txtTalonEdit);
+            textViewPlacas = itemView.findViewById(R.id.txtPlacasEdit);
+            textViewSellos = itemView.findViewById(R.id.txtSelloEdit);
+            textViewTrans = itemView.findViewById(R.id.txtTransportistaEdit);
+            textViewNet = itemView.findViewById(R.id.txtNetEdit);
+            textViewFechaCita = itemView.findViewById(R.id.txtFechaCitaEdit);
+            textViewConfirmacion = itemView.findViewById(R.id.txtConfirmacionEdit);
+            textViewFechaHora = itemView.findViewById(R.id.txtHoraEdit);
+            btnSemaforo = itemView.findViewById(R.id.btnSemaforoDatos);
+            btnTalon = itemView.findViewById(R.id.btnTalonDatos);
         }
     }
 }
