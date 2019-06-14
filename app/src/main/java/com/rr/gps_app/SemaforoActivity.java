@@ -38,6 +38,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -51,8 +53,10 @@ public class SemaforoActivity extends AppCompatActivity {
     String state,talon,userSend,mUSer ;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
+    private Date date;
     private FusedLocationProviderClient fusedLocationClient;
-    String URL = "https://rrdevsolutions.com/cdm/master/request/insertStatus.php";
+    //String URL = "https://rrdevsolutions.com/cdm/master/request/insertStatus.php";
+    String URL = "https://rrdevsolutions.com/cdmBueno/master/request/insertStatus.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +145,9 @@ public class SemaforoActivity extends AppCompatActivity {
             }
         });
 
+        //Fecha Actual
+        date = new Date();
+
 
 
         btn_Estatus.setOnClickListener(new View.OnClickListener() {
@@ -185,6 +192,9 @@ public class SemaforoActivity extends AppCompatActivity {
     {
 
         userSend = mUSer;
+        final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
+
+        Toast.makeText(getApplicationContext(),fechaActual,Toast.LENGTH_LONG).show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -214,6 +224,7 @@ public class SemaforoActivity extends AppCompatActivity {
                 params.put("dire", direccion.getText().toString().trim());
                 params.put("lat",lat.getText().toString().trim());
                 params.put("lon",lon.getText().toString().trim());
+                params.put("fechaActual",fechaActual);
                 return params;
             }
         };
