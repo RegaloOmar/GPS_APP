@@ -1,4 +1,4 @@
-package com.rr.gps_app;
+package com.rr.gps_app.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,9 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.rr.gps_app.Class.Datos;
+import com.rr.gps_app.R;
+import com.rr.gps_app.SemaforoActivity;
+import com.rr.gps_app.TalonActivity;
 
 import java.util.List;
 

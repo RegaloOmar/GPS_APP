@@ -194,7 +194,6 @@ public class SemaforoActivity extends AppCompatActivity {
         userSend = mUSer;
         final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
 
-        Toast.makeText(getApplicationContext(),fechaActual,Toast.LENGTH_LONG).show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override

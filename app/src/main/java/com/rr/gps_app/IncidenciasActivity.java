@@ -34,7 +34,7 @@ public class IncidenciasActivity extends AppCompatActivity {
     String talon,resIncidencia;
     final private int REQUEST_CODE_ASK_PERMISSION = 111;
     private Spinner incidencias;
-    String URL = "https://rrdevsolutions.com/cdm/master/request/insertIncidencia.php";
+    String URL = "https://rrdevsolutions.com/cdmBueno/master/request/insertIncidencia.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,6 @@ public class IncidenciasActivity extends AppCompatActivity {
         btnIncidencia = findViewById(R.id.btnMandar);
 
 
-
-
         btnIncidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -67,7 +65,7 @@ public class IncidenciasActivity extends AppCompatActivity {
             }
         });
 
-        String [] opciones = {"LIBERADO AL 100%","LIBERADO CON DEVOLUCION","PROCESO DE DESCARGA","AUSENCIA","LIBERADO CON FALTANTE"};
+        String [] opciones = {"LIBERADO CON DEVOLUCION","PROCESO DE DESCARGA","AUSENCIA","LIBERADO CON FALTANTE"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opciones);
         incidencias.setAdapter(adapter);
@@ -110,10 +108,7 @@ public class IncidenciasActivity extends AppCompatActivity {
     {
         String seleccion = incidencias.getSelectedItem().toString();
 
-        if (seleccion.equals("LIBERADO AL 100%"))
-        {
-            resIncidencia = "1";
-        }else if (seleccion.equals("LIBERADO CON DEVOLUCION"))
+        if (seleccion.equals("LIBERADO CON DEVOLUCION"))
         {
             resIncidencia = "2";
         }else if (seleccion.equals("PROCESO DE DESCARGA"))

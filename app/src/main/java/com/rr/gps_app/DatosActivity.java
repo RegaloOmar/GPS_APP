@@ -12,6 +12,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.rr.gps_app.Adapter.DatosAdapter;
+import com.rr.gps_app.Class.Datos;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +51,6 @@ public class DatosActivity extends AppCompatActivity {
         //Fecha Actual
         date = new Date();
         final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
-
 
 
         URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecycler.php?usuario="+user+"&dateusuario="+fechaActual;

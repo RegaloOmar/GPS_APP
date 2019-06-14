@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondo"
+    android:theme="@style/AppTheme"
+    android:orientation="vertical"
+    tools:context=".ConsultaFechas.ConsultaFechaActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorHint"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:text="Pickear Calendario para seleccionar fecha:"/>
+
+    <ImageView
+        android:id="@+id/calendarView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/calendar"/>
+
+    <EditText
+        android:id="@+id/dateCalendar"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:textAlignment="center"
+        android:backgroundTint="@color/colorHint"
+        android:textColorHint="@color/colorHint"
+        android:textColor="@color/colorHint"
+        android:hint="dd/mm/aaaa"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/btnConsultarFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBoton"
+        android:text="Consultar"
+        android:textColor="@color/colorTexto"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="409dp" />
+
+</LinearLayout>

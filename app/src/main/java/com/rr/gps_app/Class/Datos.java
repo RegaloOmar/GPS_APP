@@ -1,4 +1,4 @@
-package com.rr.gps_app;
+package com.rr.gps_app.Class;
 
 public class Datos {
     private String talon_Localidad;
