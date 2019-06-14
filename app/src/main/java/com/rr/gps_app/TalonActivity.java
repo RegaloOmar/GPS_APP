@@ -49,9 +49,6 @@ public class TalonActivity extends AppCompatActivity {
         txt_Net = (TextView) findViewById(R.id.txtNetTalon);
         txt_FechaCita = (TextView) findViewById(R.id.txtFechaTalon);
         txt_Confirmacion = (TextView) findViewById(R.id.txtConfimTalon);
-
-
-
         btn_BuscarTalon = (Button)findViewById(R.id.btnBuscarTalon);
         btn_Semaforo = (Button) findViewById(R.id.btnSemaforoTalon);
 
@@ -59,7 +56,8 @@ public class TalonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 talon = txt_Talon.getText().toString();
-                URL = "https://rrdevsolutions.com/cdm/master/request/requestTalon.php?talon="+talon;
+                URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestTalon.php?talon="+talon;
+                //URL = "https://rrdevsolutions.com/cdm/master/request/requestTalon.php?talon="+talon;
                 searchInfo(URL);
             }
         });

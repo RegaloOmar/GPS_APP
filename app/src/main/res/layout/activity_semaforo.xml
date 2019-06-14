@@ -9,6 +9,33 @@
     android:background="@color/colorFondo"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/txtLat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Latitud"
+        android:textColor="@color/colorHint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/txtLon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Longitud"
+        android:textColor="@color/colorHint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLat" />
+    <TextView
+        android:id="@+id/txtDireccion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Direccion"
+        android:textColor="@color/colorHint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLon" />
 
     <Switch
         android:id="@+id/switchGreen"

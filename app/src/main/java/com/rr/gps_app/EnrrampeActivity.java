@@ -65,7 +65,7 @@ public class EnrrampeActivity extends AppCompatActivity {
         imgTimePicker = findViewById(R.id.imageButton2);
         btnUpdate = findViewById(R.id.btnActualizarEnrrampe);
 
-        URL = "https://rrdevsolutions.com/cdm/master/request/updateRequest.php";
+        URL = "https://rrdevsolutions.com/cdmBueno/master/request/updateRequest.php";
 
         //Mediante eventos mandamos a llamar a la vista del calendario
         imgDatePicker.setOnClickListener(new View.OnClickListener() {
@@ -92,9 +92,9 @@ public class EnrrampeActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int day)
             {
                 month = month + 1;
-                Log.d(TAG,"onDateSet: mm/dd/yyyy; " + month + "/" + day + "/" + year);
+                Log.d(TAG,"onDateSet: dd/mm/yyyy; " + day + "/" + month + "/" + year);
 
-                String date = month + "/" + day + "/" + year;
+                String date = day + "/" + month + "/" + year;
                 txtDate.setText(date);
             }
         };

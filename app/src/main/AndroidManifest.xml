@@ -18,8 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".EnrrampeActivity"
-            android:parentActivityName=".CamaraActivity"></activity>
+        <activity android:name=".ConsultaFechas.FechaActivity"></activity>
+        <activity
+            android:name=".ConsultaFechas.ConsultaFechaActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".EnrrampeActivity"
+            android:parentActivityName=".CamaraActivity" />
         <activity
             android:name=".CamaraActivity"
             android:parentActivityName=".SemaforoActivity" />

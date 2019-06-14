@@ -13,11 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.rr.gps_app.ConsultaFechas.ConsultaFechaActivity;
+
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_Seleccionar;
+    private Button btn_Seleccionar,btnFechas;
     private TextView txtUser, txtCanal;
     SessionManager sessionManager;
     final private int REQUEST_CODE_ASK_PERMISSION = 111;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         txtUser = findViewById(R.id.txtUsuario);
         txtCanal = findViewById(R.id.txtCanal);
         btn_Seleccionar = findViewById(R.id.btnSeleccionar);
+        btnFechas = findViewById(R.id.btnFechas);
 
         HashMap<String,String> user = sessionManager.getUSerDetail();
         final String mUSer = user.get(sessionManager.USER);
@@ -45,7 +48,16 @@ public class MainActivity extends AppCompatActivity {
         txtUser.setText(mUSer);
         txtCanal.setText(mDestino);
 
-
+        btnFechas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ic;
+                ic =  new Intent(MainActivity.this, ConsultaFechaActivity.class);
+                ic.putExtra("datosUsuario",mUSer);
+                ic.putExtra("datosCanal",mCanal);
+                startActivity(ic);
+            }
+        });
 
         btn_Seleccionar.setOnClickListener(new View.OnClickListener(){
             @Override
