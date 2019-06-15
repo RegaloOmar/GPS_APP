@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ConsultaFechas.FechaActivity"></activity>
+        <activity
+                android:name=".ConsultaFechas.FechaActivity"
+                android:parentActivityName=".ConsultaFechas.ConsultaFechaActivity"    />
         <activity
             android:name=".ConsultaFechas.ConsultaFechaActivity"
             android:parentActivityName=".MainActivity" />

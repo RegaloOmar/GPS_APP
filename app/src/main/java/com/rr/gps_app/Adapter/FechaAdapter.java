@@ -71,14 +71,14 @@ public class FechaAdapter extends RecyclerView.Adapter<FechaAdapter.FechasViewHo
         public FechasViewHolder(View itemView) {
             super(itemView);
 
-            textViewTalon = itemView.findViewById(R.id.textTalon);
-            textViewPlacas = itemView.findViewById(R.id.textPlacas);
-            textViewSellos = itemView.findViewById(R.id.textSello);
-            textViewTrans = itemView.findViewById(R.id.textTransportista);
-            textViewNet = itemView.findViewById(R.id.textNet);
-            textViewFechaCita = itemView.findViewById(R.id.textFecha);
-            textViewConfirmacion = itemView.findViewById(R.id.textConfirm);
-            textViewFechaHora = itemView.findViewById(R.id.textHora);
+            textViewTalon = itemView.findViewById(R.id.txtTalonEditFecha);
+            textViewPlacas = itemView.findViewById(R.id.txtPlacasFecha);
+            textViewSellos = itemView.findViewById(R.id.txtSelloFecha);
+            textViewTrans = itemView.findViewById(R.id.txtTransportistaFecha);
+            textViewNet = itemView.findViewById(R.id.txtNetFecha);
+            textViewFechaCita = itemView.findViewById(R.id.txtFechaCitaFecha);
+            textViewConfirmacion = itemView.findViewById(R.id.txtConfirmacionFecha);
+            textViewFechaHora = itemView.findViewById(R.id.txtHoraFecha);
             btnAccept = itemView.findViewById(R.id.btnAccept);
         }
     }
