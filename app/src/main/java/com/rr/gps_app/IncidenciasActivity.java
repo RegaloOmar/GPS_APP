@@ -24,6 +24,8 @@ import com.rr.gps_app.Adapter.SessionManager;
 import com.rr.gps_app.Login.LoginActivity;
 import com.rr.gps_app.Semaforo.SemaforoActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,9 +36,11 @@ public class IncidenciasActivity extends AppCompatActivity {
     private EditText edtIncidencia;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
-    String talon,resIncidencia;
+    String talon,resIncidencia,userSend;
+    private Date date;
     final private int REQUEST_CODE_ASK_PERMISSION = 111;
     private Spinner incidencias;
+    //String URL = "https://rrdevsolutions.com/cdm/master/request/insertIncidencia.php";
     String URL = "https://rrdevsolutions.com/cdmBueno/master/request/insertIncidencia.php";
 
     @Override
@@ -50,9 +54,14 @@ public class IncidenciasActivity extends AppCompatActivity {
         sessionManager.checkLogin();
 
         talon = getIntent().getStringExtra("talon");
+        userSend = getIntent().getStringExtra("datosUsuario");
+
         incidencias = findViewById(R.id.spIncidencias);
         edtIncidencia = findViewById(R.id.txtIncidencias);
         btnIncidencia = findViewById(R.id.btnMandar);
+
+        //Fecha Actual
+        date = new Date();
 
 
         btnIncidencia.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +77,7 @@ public class IncidenciasActivity extends AppCompatActivity {
             }
         });
 
-        String [] opciones = {"LIBERADO CON DEVOLUCION","PROCESO DE DESCARGA","AUSENCIA","LIBERADO CON FALTANTE"};
+        String [] opciones = {"LIBERADO AL 100%","LIBERADO CON DEVOLUCION","PROCESO DE DESCARGA","AUSENCIA","LIBERADO CON FALTANTE"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opciones);
         incidencias.setAdapter(adapter);
@@ -77,7 +86,7 @@ public class IncidenciasActivity extends AppCompatActivity {
 
     private void incidencia(String URL)
     {
-
+        final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response)
@@ -100,6 +109,8 @@ public class IncidenciasActivity extends AppCompatActivity {
                 params.put("talon",talon);
                 params.put("incidencia",edtIncidencia.getText().toString());
                 params.put("tipoIncidencia",resIncidencia);
+                params.put("user",userSend);
+                params.put("fechaActual",fechaActual);
                 return params;
             }
         };
@@ -111,7 +122,11 @@ public class IncidenciasActivity extends AppCompatActivity {
     {
         String seleccion = incidencias.getSelectedItem().toString();
 
-        if (seleccion.equals("LIBERADO CON DEVOLUCION"))
+        if (seleccion.equals("LIBERADO AL 100%"))
+        {
+            resIncidencia = "1";
+        }
+        else if (seleccion.equals("LIBERADO CON DEVOLUCION"))
         {
             resIncidencia = "2";
         }else if (seleccion.equals("PROCESO DE DESCARGA"))

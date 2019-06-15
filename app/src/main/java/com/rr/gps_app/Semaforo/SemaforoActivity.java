@@ -32,6 +32,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.GenericTransitionOptions;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.rr.gps_app.Adapter.SessionManager;
@@ -151,15 +152,12 @@ public class SemaforoActivity extends AppCompatActivity {
         date = new Date();
 
 
-
         btn_Estatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-
                 semaforo(URL);
 
-               // switchReturn();
             }
         });
 
@@ -181,10 +179,11 @@ public class SemaforoActivity extends AppCompatActivity {
         btn_Incidencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(SemaforoActivity.this, IncidenciasActivity.class);
-                intent.putExtra("talon",talon);
-                startActivity(intent);
+                Intent inc;
+                inc = new Intent(SemaforoActivity.this, IncidenciasActivity.class);
+                inc.putExtra("talon",talon);
+                inc.putExtra("datosUsuario",mUSer);
+                startActivity(inc);
             }
         });
 
