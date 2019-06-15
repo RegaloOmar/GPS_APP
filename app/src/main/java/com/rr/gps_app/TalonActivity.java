@@ -16,11 +16,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.rr.gps_app.Adapter.SessionManager;
+import com.rr.gps_app.Semaforo.SemaforoActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class TalonActivity extends AppCompatActivity {
 

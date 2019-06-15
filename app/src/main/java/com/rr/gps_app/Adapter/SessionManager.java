@@ -1,8 +1,11 @@
-package com.rr.gps_app;
+package com.rr.gps_app.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
+import com.rr.gps_app.Login.LoginActivity;
+import com.rr.gps_app.MainActivity;
 
 import java.util.HashMap;
 

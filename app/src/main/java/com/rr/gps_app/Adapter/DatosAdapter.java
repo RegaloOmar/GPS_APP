@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.rr.gps_app.Class.Datos;
 import com.rr.gps_app.R;
-import com.rr.gps_app.SemaforoActivity;
+import com.rr.gps_app.Semaforo.SemaforoActivity;
 import com.rr.gps_app.TalonActivity;
 
 import java.util.List;

@@ -29,20 +29,20 @@
             android:parentActivityName=".CamaraActivity" />
         <activity
             android:name=".CamaraActivity"
-            android:parentActivityName=".SemaforoActivity" />
+            android:parentActivityName=".Semaforo.SemaforoActivity" />
         <activity
             android:name=".IncidenciasActivity"
-            android:parentActivityName=".SemaforoActivity" />
+            android:parentActivityName=".Semaforo.SemaforoActivity" />
         <activity
-            android:name=".DatosActivity"
+            android:name=".Datos.DatosActivity"
             android:parentActivityName=".TalonActivity" />
         <activity
             android:name=".TalonActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".SemaforoActivity"
-            android:parentActivityName=".DatosActivity" />
-        <activity android:name=".LoginActivity" />
+            android:name=".Semaforo.SemaforoActivity"
+            android:parentActivityName=".Datos.DatosActivity" />
+        <activity android:name=".Login.LoginActivity" />
         <activity android:name=".TransportistaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

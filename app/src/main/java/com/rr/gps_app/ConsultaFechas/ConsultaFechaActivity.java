@@ -1,7 +1,6 @@
 package com.rr.gps_app.ConsultaFechas;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,15 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rr.gps_app.CamaraActivity;
-import com.rr.gps_app.EnrrampeActivity;
 import com.rr.gps_app.R;
-import com.rr.gps_app.SessionManager;
+import com.rr.gps_app.Adapter.SessionManager;
 
 import java.util.Calendar;
 

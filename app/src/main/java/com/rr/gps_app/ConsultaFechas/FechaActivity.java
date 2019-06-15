@@ -6,27 +6,22 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.rr.gps_app.Adapter.DatosAdapter;
 import com.rr.gps_app.Adapter.FechaAdapter;
-import com.rr.gps_app.Class.Datos;
 import com.rr.gps_app.Class.Fechas;
-import com.rr.gps_app.DatosActivity;
 import com.rr.gps_app.R;
-import com.rr.gps_app.SessionManager;
+import com.rr.gps_app.Adapter.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class FechaActivity extends AppCompatActivity {

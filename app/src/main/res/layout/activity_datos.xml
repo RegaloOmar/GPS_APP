@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorFondo"
     android:theme="@style/AppTheme"
-    tools:context=".DatosActivity">
+    tools:context=".Datos.DatosActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerDatos"

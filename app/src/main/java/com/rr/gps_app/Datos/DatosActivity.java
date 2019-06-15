@@ -1,4 +1,4 @@
-package com.rr.gps_app;
+package com.rr.gps_app.Datos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.rr.gps_app.Adapter.DatosAdapter;
 import com.rr.gps_app.Class.Datos;
+import com.rr.gps_app.R;
+import com.rr.gps_app.Adapter.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;

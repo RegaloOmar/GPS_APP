@@ -1,4 +1,4 @@
-package com.rr.gps_app;
+package com.rr.gps_app.Semaforo;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -11,7 +11,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -35,7 +34,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.rr.gps_app.Adapter.SessionManager;
+import com.rr.gps_app.CamaraActivity;
+import com.rr.gps_app.IncidenciasActivity;
+import com.rr.gps_app.R;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

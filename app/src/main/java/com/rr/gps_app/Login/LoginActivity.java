@@ -1,4 +1,4 @@
-package com.rr.gps_app;
+package com.rr.gps_app.Login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +17,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.rr.gps_app.MainActivity;
+import com.rr.gps_app.R;
+import com.rr.gps_app.Adapter.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
