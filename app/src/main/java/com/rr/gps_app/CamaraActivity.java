@@ -240,7 +240,7 @@ import java.util.Map;
         progreso.show();
 
          final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
-         String url = "https://rrdevsolutions.com/cdm/master/request/requestPhoto.php";
+         String url = "https://rrdevsolutions.com/cdmBueno/master/request/requestPhoto.php";
 
          stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
              @Override
