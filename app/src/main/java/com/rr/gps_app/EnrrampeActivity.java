@@ -59,7 +59,7 @@ public class EnrrampeActivity extends AppCompatActivity {
         imgTimePicker = findViewById(R.id.imageButton2);
         btnUpdate = findViewById(R.id.btnActualizarEnrrampe);
 
-        URL = "https://rrdevsolutions.com/cdmBueno/master/request/updateRequest.php";
+        URL = "https://rrdevsolutions.com/cdm/master/request/updateRequest.php";
 
         //Mediante eventos mandamos a llamar a la vista del calendario
         imgDatePicker.setOnClickListener(new View.OnClickListener() {

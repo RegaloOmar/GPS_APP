@@ -49,8 +49,8 @@ public class FechaActivity extends AppCompatActivity {
         datechoose = getIntent().getStringExtra("mFecha");
 
 
-        URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecyclerDate.php?usuario="+user+"&dateusuario="+datechoose;
-        //URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user;
+        //URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecyclerDate.php?usuario="+user+"&dateusuario="+datechoose;
+        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user+"&dateusuario="+datechoose;
 
 
         //getting the recyclerview from xml

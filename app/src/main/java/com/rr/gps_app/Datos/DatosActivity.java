@@ -55,8 +55,8 @@ public class DatosActivity extends AppCompatActivity {
         final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
 
 
-        URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecycler.php?usuario="+user+"&dateusuario="+fechaActual;
-        //URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user;
+        //URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecycler.php?usuario="+user+"&dateusuario="+fechaActual;
+        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user+"&dateusuario="+fechaActual;
 
         //getting the recyclerview from xml
         recyclerView = (RecyclerView) findViewById(R.id.recyclerDatos);
