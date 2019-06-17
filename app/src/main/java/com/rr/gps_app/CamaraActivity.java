@@ -30,6 +30,8 @@ import com.rr.gps_app.Adapter.SessionManager;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +48,7 @@ import java.util.Map;
      SessionManager sessionManager;
      StringRequest stringRequest;
      RequestQueue request;
+     private Date date;
      ProgressDialog progreso;
      String talon, mCurrentPhotoPath;
 
@@ -74,6 +77,9 @@ import java.util.Map;
         request = Volley.newRequestQueue(CamaraActivity.this);
 
         getSupportActionBar().setTitle("Camara");
+
+        //Fecha Actual
+        date = new Date();
 
         btn_Camara.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,6 +239,7 @@ import java.util.Map;
         progreso.setMessage("Cargando...");
         progreso.show();
 
+         final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
          String url = "https://rrdevsolutions.com/cdm/master/request/requestPhoto.php";
 
          stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -266,6 +273,7 @@ import java.util.Map;
                  parametros.put("nombre", nombre);
                  parametros.put("imagen", imagen);
                  parametros.put("talon", talon);
+                 parametros.put("fecha", fechaActual);
                  return parametros;
              }
          };

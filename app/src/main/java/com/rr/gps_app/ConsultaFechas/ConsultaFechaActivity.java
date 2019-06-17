@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rr.gps_app.R;
 import com.rr.gps_app.Adapter.SessionManager;
@@ -80,7 +81,6 @@ public class ConsultaFechaActivity extends AppCompatActivity {
             }
         };
 
-        date = txtDate.getText().toString();
 
         btnConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +90,7 @@ public class ConsultaFechaActivity extends AppCompatActivity {
                 Intent i = new Intent(ConsultaFechaActivity.this, FechaActivity.class);
                 i.putExtra("mUser",user);
                 i.putExtra("mCanal",canal);
-                i.putExtra("mFecha",date);
+                i.putExtra("mFecha",txtDate.getText().toString());
                 startActivity(i);
             }
         });

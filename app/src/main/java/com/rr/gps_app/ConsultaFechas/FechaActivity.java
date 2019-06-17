@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -48,9 +49,11 @@ public class FechaActivity extends AppCompatActivity {
         canal = getIntent().getStringExtra("mCanal");
         datechoose = getIntent().getStringExtra("mFecha");
 
+        Toast.makeText(getApplicationContext(),datechoose,Toast.LENGTH_LONG).show();
+
 
         //URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecyclerDate.php?usuario="+user+"&dateusuario="+datechoose;
-        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user+"&dateusuario="+datechoose;
+        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user+"&datechoose="+datechoose;
 
 
         //getting the recyclerview from xml
