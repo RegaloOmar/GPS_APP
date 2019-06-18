@@ -57,8 +57,8 @@ public class TalonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 talon = txt_Talon.getText().toString();
-                //URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestTalon.php?talon="+talon;
-                URL = "https://rrdevsolutions.com/cdm/master/request/requestTalon.php?talon="+talon;
+                URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestTalon.php?talon="+talon;
+                //URL = "https://rrdevsolutions.com/cdm/master/request/requestTalon.php?talon="+talon;
                 searchInfo(URL);
             }
         });

@@ -31,8 +31,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button btn_InicoSesion;
     private EditText edtUser, edtPass;
-    //private static String url = "https://rrdevsolutions.com/cdmBueno/master/request/login.php";
-    private static String url = "https://rrdevsolutions.com/cdm/master/request/login.php";
+    private static String url = "https://rrdevsolutions.com/cdmBueno/master/request/login.php";
+    //private static String url = "https://rrdevsolutions.com/cdm/master/request/login.php";
     private ProgressDialog pDialog;
     SessionManager sessionManager;
 
