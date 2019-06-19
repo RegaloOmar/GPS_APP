@@ -53,7 +53,7 @@ public class FechaActivity extends AppCompatActivity {
 
 
         //URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecyclerDate.php?usuario="+user+"&datechoose="+datechoose;
-        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user+"&datechoose="+datechoose;
+        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecyclerDate.php?usuario="+user+"&datechoose="+datechoose;
 
 
         //getting the recyclerview from xml
