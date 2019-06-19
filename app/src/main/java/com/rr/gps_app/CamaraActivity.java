@@ -45,7 +45,7 @@ import java.util.Map;
      private static final int COD_SELECCIONA = 10;
      private static final int COD_FOTO = 20;
      static final int REQUEST_TAKE_PHOTO = 1;
-     Bitmap bmp;
+     Bitmap bitmap;
      private Button btn_Camara, btn_CargarFotos, btn_Cancelar, btn_Enrrampe, btn_Galeria;
      private ImageView foto;
      final static int cons = 0;
@@ -143,9 +143,9 @@ import java.util.Map;
                  if(contador==1){
                      foto.setImageURI(miPath);
                      try {
-                         bmp=null;
-                         bmp=MediaStore.Images.Media.getBitmap(CamaraActivity.this.getContentResolver(), miPath);
-                         foto.setImageBitmap(bmp);
+                         bitmap=null;
+                         bitmap=MediaStore.Images.Media.getBitmap(CamaraActivity.this.getContentResolver(), miPath);
+                         foto.setImageBitmap(bitmap);
                          contador=0;
                      } catch (IOException e) {
                          e.printStackTrace();
@@ -220,7 +220,7 @@ import java.util.Map;
                  Long consecutivo = System.currentTimeMillis()/1000;
 
                  String nombre = "Foto_"+consecutivo.toString();
-                 String imagen = convertirImagen1(bmp);
+                 String imagen = convertirImagen1(bitmap);
 
 
                  Map<String, String> parametros = new HashMap<>();
@@ -316,12 +316,7 @@ import java.util.Map;
          bmOptions.inSampleSize = scaleFactor;
          bmOptions.inPurgeable = true;
 
-         Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
+         bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
          foto.setImageBitmap(bitmap);
      }
-
-
-
-
-
  }
