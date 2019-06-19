@@ -125,7 +125,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         })
         {
-
             @Override
             protected Map<String, String> getParams() throws AuthFailureError
             {
