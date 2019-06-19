@@ -69,7 +69,7 @@ import java.util.Map;
         btn_CargarFotos =  findViewById(R.id.btnCargarFotos);
         btn_Cancelar =  findViewById(R.id.btnCancelar);
         btn_Enrrampe =  findViewById(R.id.btnEnrrampe);
-        btn_Galeria = findViewById(R.id.btnGaleria);
+        //btn_Galeria = findViewById(R.id.btnGaleria);
 
         foto =  findViewById(R.id.imageFoto);
         request = Volley.newRequestQueue(CamaraActivity.this);
@@ -90,7 +90,7 @@ import java.util.Map;
             }
         });
 
-        btn_Galeria.setOnClickListener(new View.OnClickListener() {
+       /* btn_Galeria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 contador++;
@@ -98,7 +98,7 @@ import java.util.Map;
                 intent.setType("image/");
                 startActivityForResult(intent.createChooser(intent, "Seleccione"),COD_SELECCIONA);
             }
-        });
+        });*/
 
         btn_CargarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,7 +193,7 @@ import java.util.Map;
         progreso.show();
 
          final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
-         String url = "https://rrdevsolutions.com/cdmBueno/master/request/requestPhoto.php";
+         String url = "https://rrdevsolutions.com/cdm/master/request/requestPhoto.php";
 
          stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
              @Override

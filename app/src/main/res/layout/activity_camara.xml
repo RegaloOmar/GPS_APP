@@ -31,27 +31,18 @@
             android:textColor="@color/colorTexto" />
 
         <Button
-            android:id="@+id/btnGaleria"
+            android:id="@+id/btnCargarFotos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
             android:background="@color/colorBoton"
-            android:text="Elegir de galeria"
-            android:textColor="@color/colorTexto" />
+            android:textColor="@color/colorTexto"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Subir imagen" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnCargarFotos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBoton"
-        android:textColor="@color/colorTexto"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Subir imagen" />
+
 
     <Button
         android:id="@+id/btnEnrrampe"
