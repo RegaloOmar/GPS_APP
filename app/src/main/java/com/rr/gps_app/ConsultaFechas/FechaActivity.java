@@ -52,8 +52,8 @@ public class FechaActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),datechoose,Toast.LENGTH_LONG).show();
 
 
-        //URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecyclerDate.php?usuario="+user+"&dateusuario="+datechoose;
-        URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user+"&datechoose="+datechoose;
+        URL = "https://rrdevsolutions.com/cdmBueno/master/request/requestRecyclerDate.php?usuario="+user+"&datechoose="+datechoose;
+        //URL = "https://rrdevsolutions.com/cdm/master/request/requestRecycler.php?usuario="+user+"&datechoose="+datechoose;
 
 
         //getting the recyclerview from xml

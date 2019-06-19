@@ -40,8 +40,8 @@ public class IncidenciasActivity extends AppCompatActivity {
     private Date date;
     final private int REQUEST_CODE_ASK_PERMISSION = 111;
     private Spinner incidencias;
-    String URL = "https://rrdevsolutions.com/cdm/master/request/insertIncidencia.php";
-    //String URL = "https://rrdevsolutions.com/cdmBueno/master/request/insertIncidencia.php";
+    //String URL = "https://rrdevsolutions.com/cdm/master/request/insertIncidencia.php";
+    String URL = "https://rrdevsolutions.com/cdmBueno/master/request/insertIncidencia.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
