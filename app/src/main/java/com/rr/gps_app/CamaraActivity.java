@@ -266,17 +266,17 @@ import java.util.Map;
 
      private void dispatchTakePictureIntent() {
          Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-         // Ensure that there's a camera activity to handle the intent
+         // Asegurarse de que ahy un activity para recibir el intent
          if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-             // Create the File where the photo should go
+             // Crear el File
              File photoFile = null;
              try {
                  photoFile = createImageFile();
              } catch (IOException ex) {
-                 // Error occurred while creating the File
+                 // Error
 
              }
-             // Continue only if the File was successfully created
+             // solo continua si la creacion de imagen fue exitosa
              if (photoFile != null) {
 
                  Uri photoURI = FileProvider.getUriForFile(this,
@@ -297,21 +297,21 @@ import java.util.Map;
      }
 
      private void setPic() {
-         // Get the dimensions of the View
+         // Obtener tamaño del IMageView
          int targetW = foto.getWidth();
          int targetH = foto.getHeight();
 
-         // Get the dimensions of the bitmap
+         //Obtener tamaño del bitmap original
          BitmapFactory.Options bmOptions = new BitmapFactory.Options();
          bmOptions.inJustDecodeBounds = true;
          BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
          int photoW = bmOptions.outWidth;
          int photoH = bmOptions.outHeight;
 
-         // Determine how much to scale down the image
+         //Determinar cuanto es la escala de la imagen
          int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
 
-         // Decode the image file into a Bitmap sized to fill the View
+         // Decodigficarla y acomodarla en el iMageview pra que se vea bien vergas
          bmOptions.inJustDecodeBounds = false;
          bmOptions.inSampleSize = scaleFactor;
          bmOptions.inPurgeable = true;
