@@ -44,7 +44,6 @@ import java.util.Map;
 
      private static final int COD_SELECCIONA = 10;
      private static final int COD_FOTO = 20;
-     static final int REQUEST_TAKE_PHOTO = 1;
      Bitmap bitmap;
      private Button btn_Camara, btn_CargarFotos, btn_Cancelar, btn_Enrrampe, btn_Galeria;
      private ImageView foto;

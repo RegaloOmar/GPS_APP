@@ -23,6 +23,37 @@ public class Fechas
 
     }
 
+    public void setTalon_Localidad(String talon_Localidad) {
+        this.talon_Localidad = talon_Localidad;
+    }
+
+    public void setPlacas(String placas) {
+        this.placas = placas;
+    }
+
+    public void setSello(String sello) {
+        this.sello = sello;
+    }
+
+    public void setTransportista(String transportista) {
+        this.transportista = transportista;
+    }
+
+    public void setNet(String net) {
+        this.net = net;
+    }
+
+    public void setFecha_Cita(String fecha_Cita) {
+        this.fecha_Cita = fecha_Cita;
+    }
+
+    public void setConfirmacion(String confirmacion) {
+        this.confirmacion = confirmacion;
+    }
+
+    public void setFecha_Cita_Hora(String fecha_Cita_Hora) {
+        this.fecha_Cita_Hora = fecha_Cita_Hora;
+    }
 
     public String getTalon_Localidad() {
         return talon_Localidad;
