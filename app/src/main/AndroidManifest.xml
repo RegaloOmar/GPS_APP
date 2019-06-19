@@ -3,9 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.rr.gps_app">
 
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -54,7 +58,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="{$applicationId}.provider"
+            android:authorities="com.rr.gps_app.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -64,7 +68,7 @@
 
         <provider
             android:name=".GenericFileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:authorities="com.rr.gps_app.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

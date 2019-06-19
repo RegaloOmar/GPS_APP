@@ -3,6 +3,10 @@
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -40,6 +44,7 @@ import java.util.Map;
 
      private static final int COD_SELECCIONA = 10;
      private static final int COD_FOTO = 20;
+     static final int REQUEST_TAKE_PHOTO = 1;
      Bitmap bmp;
      private Button btn_Camara, btn_CargarFotos, btn_Cancelar, btn_Enrrampe, btn_Galeria;
      private ImageView foto;
@@ -50,13 +55,7 @@ import java.util.Map;
      RequestQueue request;
      private Date date;
      ProgressDialog progreso;
-     String talon, mCurrentPhotoPath;
-
-     private final String CARPETA_PRINCIPAL= "misImagenesAPP/";//directorio principal
-     private final String CARPETA_IMAGEN = "imagenes"; //Donde se guardan las fotos
-     private final String DIRECTORIO_IMAGEN= CARPETA_PRINCIPAL + CARPETA_IMAGEN; //ruta de la carpeta de directorios
-     private String path; //almacena la ruta de la imagen
-     File fileImagen;
+     String talon, currentPhotoPath;
 
 
 
@@ -85,11 +84,10 @@ import java.util.Map;
             @Override
             public void onClick(View v) {
                 contador++;
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                //intent.putExtra(MediaStore.EXTRA_OUTPUT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString());
-                //intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                dispatchTakePictureIntent();
 
-                startActivityForResult(intent, COD_FOTO);
+                //Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //startActivityForResult(intent, COD_FOTO);
             }
         });
 
@@ -133,38 +131,6 @@ import java.util.Map;
         startActivity(i);
      }
 
-     private void initCamara() {
-
-        File miFile = new File( Environment.getExternalStorageDirectory() , DIRECTORIO_IMAGEN);
-        boolean isCreada = miFile.exists();
-
-        if (isCreada ==false){
-            isCreada=miFile.mkdirs();
-        }else {
-            Long consecutivo = System.currentTimeMillis()/1000;
-            String nombre = consecutivo.toString() + ".jpg";
-
-            //Ruta de almacenamiento
-            path = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()+"/"+nombre;
-
-            //Contruir el archivo
-
-
-            fileImagen = new File(path);
-            Uri photoURI = FileProvider.getUriForFile(CamaraActivity.this, this.getApplicationContext().getPackageName()
-                    + ".my.package.name.provider", fileImagen);
-
-
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-            startActivityForResult(intent, COD_FOTO);
-        }
-
-
-
-    }
 
 
      @Override
@@ -189,24 +155,12 @@ import java.util.Map;
                  break;
              case COD_FOTO:
 
-                 /*MediaScannerConnection.scanFile(CamaraActivity.this, new String[]{path}, null,
-                         new MediaScannerConnection.OnScanCompletedListener() {
-                             @Override
-                             public void onScanCompleted(String path, Uri uri) {
-                                 Log.i("Path", ""+path);
-                             }
-                         });
-
-                 bmp = BitmapFactory.decodeFile(path);
-                 foto.setImageBitmap(bmp);*/
-
-
-
                      if (contador == 1) {
-                         bmp=null;
-                         Bundle ext = data.getExtras();
-                         bmp = (Bitmap) ext.get("data");
-                         foto.setImageBitmap(bmp);
+                         galleryAddPic();
+                         setPic();
+                         //Bundle ext = data.getExtras();
+                         //bmp = (Bitmap) ext.get("data");
+                         //foto.setImageBitmap(bmp);
                          contador = 0;
                      }
 
@@ -282,7 +236,7 @@ import java.util.Map;
 
      private String convertirImagen1(Bitmap bmpFoto) {
          ByteArrayOutputStream array = new ByteArrayOutputStream();
-         bmpFoto.compress(Bitmap.CompressFormat.PNG,100,array);
+         bmpFoto.compress(Bitmap.CompressFormat.JPEG,100,array);
          byte[] imagenByte = array.toByteArray();
          String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
          return imagenString;
@@ -293,6 +247,81 @@ import java.util.Map;
         i.putExtra("talon",talon);
         startActivity(i);
      }
+
+     private File createImageFile() throws IOException {
+         // Create an image file name
+         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+         String imageFileName = "JPEG_" + timeStamp + "_";
+         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+         File image = File.createTempFile(
+                 imageFileName,  /* prefix */
+                 ".jpg",         /* suffix */
+                 storageDir      /* directory */
+         );
+
+         // Save a file: path for use with ACTION_VIEW intents
+         currentPhotoPath = image.getAbsolutePath();
+         return image;
+     }
+
+     private void dispatchTakePictureIntent() {
+         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+         // Ensure that there's a camera activity to handle the intent
+         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+             // Create the File where the photo should go
+             File photoFile = null;
+             try {
+                 photoFile = createImageFile();
+             } catch (IOException ex) {
+                 // Error occurred while creating the File
+
+             }
+             // Continue only if the File was successfully created
+             if (photoFile != null) {
+
+                 Uri photoURI = FileProvider.getUriForFile(this,
+                         "com.rr.gps_app.fileprovider",
+                         photoFile);
+                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                 startActivityForResult(takePictureIntent, COD_FOTO);
+             }
+         }
+     }
+
+     private void galleryAddPic() {
+         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+         File f = new File(currentPhotoPath);
+         Uri contentUri = Uri.fromFile(f);
+         mediaScanIntent.setData(contentUri);
+         CamaraActivity.this.sendBroadcast(mediaScanIntent);
+     }
+
+     private void setPic() {
+         // Get the dimensions of the View
+         int targetW = foto.getWidth();
+         int targetH = foto.getHeight();
+
+         // Get the dimensions of the bitmap
+         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+         bmOptions.inJustDecodeBounds = true;
+         BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
+         int photoW = bmOptions.outWidth;
+         int photoH = bmOptions.outHeight;
+
+         // Determine how much to scale down the image
+         int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+
+         // Decode the image file into a Bitmap sized to fill the View
+         bmOptions.inJustDecodeBounds = false;
+         bmOptions.inSampleSize = scaleFactor;
+         bmOptions.inPurgeable = true;
+
+         Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
+         foto.setImageBitmap(bitmap);
+     }
+
+
+
 
 
  }
