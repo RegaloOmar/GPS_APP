@@ -142,14 +142,14 @@
                 <TextView
                     android:id="@+id/txtTransportistaEdit"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="29dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="6dp"
                     android:layout_marginRight="20dp"
                     android:gravity="center"
-                    android:text=""
+                    android:text="EHFUIRFHEIRUHFIERUHFUIERHFUIERHFUIERHFUIEHRFUI"
                     android:textColor="@color/colorTexto"
-                    android:textSize="18dp" />
+                    android:textSize="12dp" />
             </LinearLayout>
 
 
