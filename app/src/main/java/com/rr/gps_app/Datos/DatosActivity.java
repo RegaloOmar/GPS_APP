@@ -101,7 +101,8 @@ public class DatosActivity extends AppCompatActivity {
                                         datos.getString("Net"),
                                         datos.getString("Fecha_Cita"),
                                         datos.getString("Confirmacion"),
-                                        datos.getString("Fecha_Cita_Hora")
+                                        datos.getString("Fecha_Cita_Hora"),
+                                        datos.getString("Descripcion")
                                 ));
                             }
 

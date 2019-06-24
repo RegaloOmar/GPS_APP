@@ -9,8 +9,10 @@ public class Datos {
     private String fecha_Cita;
     private String confirmacion;
     private String fecha_Cita_Hora;
+    private String descripcion;
 
-    public Datos(String talon_Localidad, String placas, String sello, String transportista, String net, String fecha_Cita, String confirmacion, String fecha_Cita_Hora) {
+    public Datos(String talon_Localidad, String placas, String sello, String transportista, String net,
+                 String fecha_Cita, String confirmacion, String fecha_Cita_Hora , String descripcion) {
         this.talon_Localidad = talon_Localidad;
         this.placas = placas;
         this.sello = sello;
@@ -19,6 +21,7 @@ public class Datos {
         this.fecha_Cita = fecha_Cita;
         this.confirmacion = confirmacion;
         this.fecha_Cita_Hora = fecha_Cita_Hora;
+        this.descripcion = descripcion;
 
     }
 
@@ -55,6 +58,10 @@ public class Datos {
 
     public String getFecha_Cita_Hora() {
         return fecha_Cita_Hora;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
     }
 
 }

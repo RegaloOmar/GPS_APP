@@ -2,6 +2,7 @@ package com.rr.gps_app.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,9 +38,19 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
     @Override
     public void onBindViewHolder(DatosViewHolder holder, int position) {
         final Datos datos = datosList.get(position);
+        String desc = datos.getDescripcion();
+
+        if (desc.equals("F"))
+        {
+            holder.textViewTalon.setText(datos.getTalon_Localidad());
+            holder.textViewTalon.setTextColor(Color.GREEN);
+        }else
+        {
+            holder.textViewTalon.setText(datos.getTalon_Localidad());
+            holder.textViewTalon.setTextColor(Color.RED);
+        }
 
 
-        holder.textViewTalon.setText(datos.getTalon_Localidad());
         holder.textViewPlacas.setText(datos.getPlacas());
         holder.textViewSellos.setText(String.valueOf(datos.getSello()));
         holder.textViewTrans.setText(String.valueOf(datos.getTransportista()));
