@@ -45,7 +45,7 @@ import java.util.Map;
      private static final int COD_SELECCIONA = 10;
      private static final int COD_FOTO = 20;
      Bitmap bitmap;
-     private Button btn_Camara, btn_CargarFotos, btn_Cancelar, btn_Enrrampe, btn_Galeria;
+     private Button btn_Camara, btn_CargarFotos, btn_Finalizar, btn_Enrrampe, btn_Galeria;
      private ImageView foto;
      final static int cons = 0;
      public int contador = 0;
@@ -53,8 +53,9 @@ import java.util.Map;
      StringRequest stringRequest;
      RequestQueue request;
      private Date date;
-     ProgressDialog progreso;
-     String talon, currentPhotoPath;
+     ProgressDialog progreso, finalizar;
+     String talon, currentPhotoPath,mUSer,userSend;
+     String URL = "https://rrdevsolutions.com/cdm/master/request/insertEnd.php";
 
 
 
@@ -65,9 +66,15 @@ import java.util.Map;
 
         talon = getIntent().getStringExtra("talon");
 
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+
+        HashMap<String,String> user = sessionManager.getUSerDetail();
+        mUSer = user.get(sessionManager.USER);
+
         btn_Camara =  findViewById(R.id.btnCamara);
         btn_CargarFotos =  findViewById(R.id.btnCargarFotos);
-        btn_Cancelar =  findViewById(R.id.btnCancelar);
+        btn_Finalizar =  findViewById(R.id.btnFinalizar);
         btn_Enrrampe =  findViewById(R.id.btnEnrrampe);
         //btn_Galeria = findViewById(R.id.btnGaleria);
 
@@ -107,10 +114,11 @@ import java.util.Map;
             }
         });
 
-        btn_Cancelar.setOnClickListener(new View.OnClickListener() {
+        btn_Finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                regresarHome();
+            public void onClick(View v)
+            {
+                talonEnd(URL);
             }
         });
 
@@ -318,4 +326,45 @@ import java.util.Map;
          bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
          foto.setImageBitmap(bitmap);
      }
+
+     private void talonEnd(String URL)
+     {
+
+         userSend = mUSer;
+         finalizar=new ProgressDialog(CamaraActivity.this);
+         finalizar.setMessage("Finalizando Talón...");
+         finalizar.show();
+
+         StringRequest stringRequestEnd = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+             @Override
+             public void onResponse(String response)
+             {
+                finalizar.hide();
+                Intent im = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(im);
+                //Toast.makeText(getApplicationContext(),"Haz Finalizado el Talon",Toast.LENGTH_LONG).show();
+
+             }
+         }, new Response.ErrorListener() {
+             @Override
+             public void onErrorResponse(VolleyError error)
+             {
+                 finalizar.hide();
+                 Toast.makeText(getApplicationContext(),"Erroa al finalizar.",Toast.LENGTH_LONG).show();
+             }
+         })
+         {
+             @Override
+             protected Map<String, String> getParams() throws AuthFailureError
+             {
+                 Map<String, String> params = new HashMap<String, String>();
+                 params.put("talon",talon);
+                 params.put("us",userSend);
+                 return params;
+             }
+         };
+         RequestQueue requestQueue = Volley.newRequestQueue(this);
+         requestQueue.add(stringRequestEnd);
+     }
+
  }
