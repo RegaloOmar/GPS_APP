@@ -60,6 +60,10 @@ public class IncidenciasActivity extends AppCompatActivity {
         edtIncidencia = findViewById(R.id.txtIncidencias);
         btnIncidencia = findViewById(R.id.btnMandar);
 
+        HashMap<String,String> user = sessionManager.getUSerDetail();
+        final String mUSer = user.get(sessionManager.USER);
+        final String mCanal = user.get(sessionManager.IDCANAL);
+
         //Fecha Actual
         date = new Date();
 

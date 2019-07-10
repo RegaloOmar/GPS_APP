@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.rr.gps_app.Adapter.SessionManager;
+import com.rr.gps_app.Datos.DatosActivity;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -43,6 +44,7 @@ public class EnrrampeActivity extends AppCompatActivity {
     private static final String TAG = "EnrrampeActivity";
     private RequestQueue requestQueue;
     private static String URL = "";
+    String mUSer, mCanal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,10 @@ public class EnrrampeActivity extends AppCompatActivity {
 
         //URL = "https://rrdevsolutions.com/cdmBueno/master/request/updateRequest.php";
         URL = "https://rrdevsolutions.com/cdm/master/request/updateRequest.php";
+
+        HashMap<String,String> user = sessionManager.getUSerDetail();
+        mUSer = user.get(sessionManager.USER);
+        mCanal = user.get(sessionManager.IDCANAL);
 
         //Mediante eventos mandamos a llamar a la vista del calendario
         imgDatePicker.setOnClickListener(new View.OnClickListener() {
@@ -176,9 +182,21 @@ public class EnrrampeActivity extends AppCompatActivity {
             case R.id.menu_logout:
                 sessionManager.logout();
                 return true;
+            case android.R.id.home:
+                regresandoTalon();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void regresandoTalon() {
+        Intent id;
+        id =  new Intent(EnrrampeActivity.this, DatosActivity.class);
+        id.putExtra("datosUsuario",mUSer);
+        id.putExtra("datosCanal",mCanal);
+        startActivity(id);
     }
 
 

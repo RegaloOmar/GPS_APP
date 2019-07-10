@@ -14,11 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
+            <TextView
             android:id="@+id/txt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
@@ -31,7 +31,7 @@
             android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="94dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/colorTexto"
             android:gravity="center"
@@ -52,7 +52,7 @@
             android:id="@+id/txt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
@@ -60,11 +60,11 @@
             android:textColor="@color/colorBoton"
             android:text="Placas:" />
 
-        <TextView
+        <EditText
             android:id="@+id/txtPlacasTalon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_marginLeft="84dp"
             android:layout_marginRight="20dp"
@@ -81,7 +81,7 @@
             android:id="@+id/txt3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
@@ -90,11 +90,11 @@
             android:text="Sello:" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/txtSelloTalon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_marginLeft="106dp"
             android:layout_marginRight="20dp"
@@ -111,7 +111,7 @@
             android:id="@+id/txt4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
@@ -120,11 +120,11 @@
             android:text="Transportista:" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/txtTranspTalon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
@@ -141,7 +141,7 @@
             android:id="@+id/txt5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
@@ -150,11 +150,11 @@
             android:text="Net:" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/txtNetTalon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_marginLeft="123dp"
             android:layout_marginRight="20dp"
@@ -171,7 +171,7 @@
             android:id="@+id/txt6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
@@ -179,11 +179,11 @@
             android:textColor="@color/colorBoton"
             android:text="Fecha de Cita:" />
 
-        <TextView
+        <EditText
             android:id="@+id/txtFechaTalon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
@@ -200,7 +200,7 @@
             android:id="@+id/txt7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
@@ -208,11 +208,11 @@
             android:textColor="@color/colorBoton"
             android:text="Confirmacion:" />
 
-        <TextView
+        <EditText
             android:id="@+id/txtConfimTalon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
@@ -222,16 +222,34 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnBuscarTalon"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBoton"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Buscar Talon"
-        android:textColor="@color/colorTexto" />
+        android:layout_height="88dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnBuscarTalon"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorBoton"
+            android:text="Buscar Talon"
+            android:textColor="@color/colorTexto" />
+
+        <Button
+            android:id="@+id/btnActualizarTalon"
+            android:layout_width="169dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/colorBoton"
+            android:text="Actualizar"
+            android:textColor="@color/colorTexto" />
+    </LinearLayout>
 
 
     <Button
@@ -239,7 +257,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBoton"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Semaforo"

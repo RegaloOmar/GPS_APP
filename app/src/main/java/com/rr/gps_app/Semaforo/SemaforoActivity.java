@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -37,7 +38,9 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.rr.gps_app.Adapter.SessionManager;
 import com.rr.gps_app.CamaraActivity;
+import com.rr.gps_app.Datos.DatosActivity;
 import com.rr.gps_app.IncidenciasActivity;
+import com.rr.gps_app.MainActivity;
 import com.rr.gps_app.R;
 
 import java.io.IOException;
@@ -53,7 +56,7 @@ public class SemaforoActivity extends AppCompatActivity {
     private Button btn_Evidencia,btn_Incidencias,btn_Estatus;
     private Switch gSwitch,rSwitch,bSwitch,ySwitch;
     private TextView direccion, lat,lon;
-    String state,talon,userSend,mUSer ;
+    String state,talon,userSend,mUSer, mCanal;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
     private Date date;
@@ -72,6 +75,8 @@ public class SemaforoActivity extends AppCompatActivity {
 
         HashMap<String,String> user = sessionManager.getUSerDetail();
          mUSer = user.get(sessionManager.USER);
+         mCanal = user.get(sessionManager.IDCANAL);
+
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -341,9 +346,21 @@ public class SemaforoActivity extends AppCompatActivity {
             case R.id.menu_logout:
                 sessionManager.logout();
                 return true;
+            case android.R.id.home:
+                regresandoTalon();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void regresandoTalon() {
+        Intent id;
+        id =  new Intent(SemaforoActivity.this, DatosActivity.class);
+        id.putExtra("datosUsuario",mUSer);
+        id.putExtra("datosCanal",mCanal);
+        startActivity(id);
     }
 
     public void switchReturn()
@@ -375,4 +392,6 @@ public class SemaforoActivity extends AppCompatActivity {
         pDialog.setCancelable(true);
         pDialog.show();
     }
+
+
 }

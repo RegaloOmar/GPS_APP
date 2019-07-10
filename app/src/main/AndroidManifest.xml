@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.rr.gps_app">
 
-    <uses-feature android:name="android.hardware.camera"
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="true" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -22,9 +24,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ScannerActivity"></activity>
         <activity
-                android:name=".ConsultaFechas.FechaActivity"
-                android:parentActivityName=".ConsultaFechas.ConsultaFechaActivity"    />
+            android:name=".ConsultaFechas.FechaActivity"
+            android:parentActivityName=".ConsultaFechas.ConsultaFechaActivity" />
         <activity
             android:name=".ConsultaFechas.ConsultaFechaActivity"
             android:parentActivityName=".MainActivity" />
@@ -65,7 +68,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
         <provider
             android:name=".GenericFileProvider"
             android:authorities="com.rr.gps_app.fileprovider"
@@ -73,7 +75,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
     </application>
 
