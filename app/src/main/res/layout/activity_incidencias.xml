@@ -52,7 +52,7 @@
                 android:background="@color/colorBoton"
                 android:layout_marginTop="70dp"
                 android:layout_marginBottom="30sp"
-                android:text="Mandar" />
+                android:text="Mandar"  />
 
         </LinearLayout>
 
