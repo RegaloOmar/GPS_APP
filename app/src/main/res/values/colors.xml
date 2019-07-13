@@ -11,4 +11,5 @@
     <color name="semaforoVerde"> #33E303 </color>
     <color name="semaforoAzul"> #08E8F7 </color>
     <color name="colorHint">#C3C3C3</color>
+    <color name="transp">#80000000</color>
 </resources>

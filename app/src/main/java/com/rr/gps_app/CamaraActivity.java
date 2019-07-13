@@ -30,6 +30,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.rr.gps_app.Adapter.SessionManager;
+import com.rr.gps_app.Semaforo.SemaforoActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -188,6 +189,9 @@ import java.util.Map;
          switch (item.getItemId()){
              case R.id.menu_logout:
                  sessionManager.logout();
+                 return true;
+             case android.R.id.home:
+                 regresandoTalon();
                  return true;
              default:
                  return super.onOptionsItemSelected(item);
@@ -365,6 +369,14 @@ import java.util.Map;
          };
          RequestQueue requestQueue = Volley.newRequestQueue(this);
          requestQueue.add(stringRequestEnd);
+     }
+
+     private void regresandoTalon() {
+         Intent id;
+         id =  new Intent(CamaraActivity.this, SemaforoActivity.class);
+         id.putExtra("datosUsuario",mUSer);
+         id.putExtra("talon",talon);
+         startActivity(id);
      }
 
  }

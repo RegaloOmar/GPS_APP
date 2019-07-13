@@ -364,6 +364,7 @@ public class SemaforoActivity extends AppCompatActivity {
         id =  new Intent(SemaforoActivity.this, DatosActivity.class);
         id.putExtra("datosUsuario",mUSer);
         id.putExtra("datosCanal",mCanal);
+        id.putExtra("talon",talon);
         startActivity(id);
     }
 

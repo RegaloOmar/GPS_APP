@@ -193,9 +193,10 @@ public class EnrrampeActivity extends AppCompatActivity {
 
     private void regresandoTalon() {
         Intent id;
-        id =  new Intent(EnrrampeActivity.this, DatosActivity.class);
+        id =  new Intent(EnrrampeActivity.this, CamaraActivity.class);
         id.putExtra("datosUsuario",mUSer);
         id.putExtra("datosCanal",mCanal);
+        id.putExtra("talon",talon);
         startActivity(id);
     }
 

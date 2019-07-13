@@ -158,9 +158,19 @@ public class IncidenciasActivity extends AppCompatActivity {
             case R.id.menu_logout:
                 sessionManager.logout();
                 return true;
+            case android.R.id.home:
+                regresandoTalon();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void regresandoTalon() {
+        Intent id;
+        id =  new Intent(IncidenciasActivity.this, SemaforoActivity.class);
+        id.putExtra("talon",talon);
+        startActivity(id);
     }
 
     //Metodo para crear dialogos al momento de hacer cambios

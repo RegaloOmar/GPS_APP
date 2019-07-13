@@ -9,20 +9,19 @@
     tools:context=".EnrrampeActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50sp"
+        android:gravity="center"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/fechaNacimiento"
-            android:layout_width="290dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginTop="20sp"
             android:ems="10"
             android:backgroundTint="@color/colorHint"
             android:textColorHint="@color/colorHint"
@@ -36,29 +35,29 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="46dp"
+            android:background="@color/colorFondo"
             android:contentDescription="dd/mm/aaaa"
             android:cropToPadding="true"
-            android:src="@drawable/ic_datepicker" />
+            android:src="@drawable/ic_today" />
 
     </LinearLayout>
 
 
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50sp"
+        android:gravity="center"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/textTime"
-            android:layout_width="290dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginTop="20sp"
             android:ems="10"
             android:backgroundTint="@color/colorHint"
             android:textColorHint="@color/colorHint"
@@ -72,7 +71,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="46dp"
+            android:background="@color/colorFondo"
             android:contentDescription="00:00"
             android:cropToPadding="true"
             android:src="@drawable/ic_timepicker" />
@@ -83,8 +82,8 @@
         android:id="@+id/btnActualizarEnrrampe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="50dp"
         android:background="@color/colorBoton"
         android:textColor="@color/colorTexto"
