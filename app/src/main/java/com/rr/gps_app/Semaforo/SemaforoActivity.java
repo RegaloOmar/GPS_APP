@@ -55,7 +55,7 @@ public class SemaforoActivity extends AppCompatActivity {
 
     private Button btn_Evidencia,btn_Incidencias,btn_Estatus;
     private Switch gSwitch,rSwitch,bSwitch,ySwitch;
-    private TextView direccion, lat,lon;
+    private TextView direccion, lat,lon,txtDescTalon;
     String state,talon,userSend,mUSer, mCanal;
     SessionManager sessionManager;
     private ProgressDialog pDialog;
@@ -86,6 +86,7 @@ public class SemaforoActivity extends AppCompatActivity {
         direccion = findViewById(R.id.txtDireccion);
         lat = findViewById(R.id.txtLat);
         lon = findViewById(R.id.txtLon);
+        txtDescTalon = findViewById(R.id.txtTalon);
         btn_Estatus = findViewById(R.id.btnEstatus);
         btn_Evidencia = findViewById(R.id.btnEvidencia);
         btn_Incidencias = findViewById(R.id.btnIncidencias);
@@ -93,6 +94,9 @@ public class SemaforoActivity extends AppCompatActivity {
         rSwitch = findViewById(R.id.switchRed);
         ySwitch = findViewById(R.id.switchYellow);
         bSwitch = findViewById(R.id.switchBlue);
+
+        //Mostrar talon seleccionado
+        txtDescTalon.setText(talon);
 
         locationStart();
 

@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,6 +48,10 @@ public class ConsultaFechaActivity extends AppCompatActivity {
         txtDate = findViewById(R.id.dateCalendar);
         imgDatePicker = findViewById(R.id.calendarView);
         btnConsultar = findViewById(R.id.btnConsultarFecha);
+
+        //Bloqueamos la seleccion del input
+        txtDate.setEnabled(false);
+        txtDate.setInputType(InputType.TYPE_NULL);
 
 
         //Mediante eventos mandamos a llamar a la vista del calendario

@@ -9,106 +9,169 @@
     android:background="@color/colorFondo"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtLat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Latitud"
-        android:textColor="@color/colorHint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/txtLon"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Longitud"
-        android:textColor="@color/colorHint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLat" />
-    <TextView
-        android:id="@+id/txtDireccion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Direccion"
-        android:textColor="@color/colorHint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLon" />
 
-    <Switch
-        android:id="@+id/switchGreen"
+    <!-- Inicia nuestro ScrollView -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/semaforoVerde"
-        android:layout_marginTop="40dp"
-        android:text="Dos Horas antes de la cita" />
+        android:layout_height="match_parent">
 
-    <Switch
-        android:id="@+id/switchYellow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/semaforoAmarrillo"
-        android:layout_marginTop="50dp"
-        android:text="Una Hora antes de la cita" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/switchRed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/semafororRojo"
-        android:layout_marginTop="50dp"
-        android:text="Igual o Mayor a la hora de la cita" />
+            <!-- Coordenadas del lugar -->
+            <TextView
+                android:id="@+id/txtLat"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Latitud"
+                android:textColor="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
+            <TextView
+                android:id="@+id/txtLon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Longitud"
+                android:textColor="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLat" />
 
-    <Switch
-        android:id="@+id/switchBlue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/semaforoAzul"
-        android:layout_marginTop="50dp"
-        android:text="Arribo a tiempo" />
+            <TextView
+                android:id="@+id/txtDireccion"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Direccion"
+                android:textColor="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLon" />
 
-    <Button
-        android:id="@+id/btnEstatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Estatus"
-        android:layout_marginTop="70dp"
-        android:background="@color/colorBoton"
-        android:textColor="@color/colorTexto"/>
 
-    <Button
-        android:id="@+id/btnEvidencia"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorBoton"
-        android:textColor="@color/colorTexto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Evidencias" />
+            <!-- Talon que se esta manejando -->
 
-    <Button
-        android:id="@+id/btnIncidencias"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/colorTexto"
-        android:background="@color/colorBoton"
-        android:text="Incidencias" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Talon:"
+                    android:textColor="@color/colorHint"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLat" />
+
+                <TextView
+                    android:id="@+id/txtTalon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:text="114569-9"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLat" />
+
+            </LinearLayout>
+
+
+
+
+
+            <Switch
+                android:id="@+id/switchGreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="17sp"
+                android:textColor="@color/semaforoVerde"
+                android:layout_marginTop="40dp"
+                android:text="Dos Horas antes de la cita" />
+
+            <Switch
+                android:id="@+id/switchYellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="17sp"
+                android:textColor="@color/semaforoAmarrillo"
+                android:layout_marginTop="40dp"
+                android:text="Una Hora antes de la cita" />
+
+            <Switch
+                android:id="@+id/switchRed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="17sp"
+                android:textColor="@color/semafororRojo"
+                android:layout_marginTop="40dp"
+                android:text="Igual o Mayor a la hora de la cita" />
+
+
+
+            <Switch
+                android:id="@+id/switchBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="17sp"
+                android:textColor="@color/semaforoAzul"
+                android:layout_marginTop="40dp"
+                android:text="Arribo a tiempo" />
+
+            <Button
+                android:id="@+id/btnEstatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Estatus"
+                android:layout_marginTop="70dp"
+                android:background="@color/colorBoton"
+                android:textColor="@color/colorTexto"/>
+
+            <Button
+                android:id="@+id/btnEvidencia"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorBoton"
+                android:textColor="@color/colorTexto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Evidencias" />
+
+            <Button
+                android:id="@+id/btnIncidencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/colorTexto"
+                android:background="@color/colorBoton"
+                android:text="Incidencias" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
