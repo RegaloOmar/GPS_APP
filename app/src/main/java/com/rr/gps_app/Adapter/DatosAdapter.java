@@ -56,7 +56,7 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
         holder.textViewTrans.setText(String.valueOf(datos.getTransportista()));
         holder.textViewNet.setText(datos.getNet());
         holder.textViewFechaCita.setText(datos.getFecha_Cita());
-        holder.textViewConfirmacion.setText(String.valueOf(datos.getConfirmacion()));
+        holder.textViewCanal.setText(String.valueOf(datos.getConfirmacion()));
         holder.textViewFechaHora.setText(String.valueOf(datos.getFecha_Cita_Hora()));
 
         holder.btnSemaforo.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +86,7 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
 
     class DatosViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewTalon, textViewPlacas, textViewSellos, textViewTrans,textViewNet, textViewFechaCita, textViewConfirmacion, textViewFechaHora;
+        TextView textViewTalon, textViewPlacas, textViewSellos, textViewTrans,textViewNet, textViewFechaCita, textViewCanal, textViewFechaHora;
         Button btnSemaforo,btnTalon;
 
         public DatosViewHolder(View itemView) {
@@ -98,7 +98,7 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
             textViewTrans = itemView.findViewById(R.id.txtTransportistaEdit);
             textViewNet = itemView.findViewById(R.id.txtNetEdit);
             textViewFechaCita = itemView.findViewById(R.id.txtFechaCitaEdit);
-            textViewConfirmacion = itemView.findViewById(R.id.txtConfirmacionEdit);
+            textViewCanal = itemView.findViewById(R.id.txtCanalEdit);
             textViewFechaHora = itemView.findViewById(R.id.txtHoraEdit);
             btnSemaforo = itemView.findViewById(R.id.btnSemaforoDatos);
             btnTalon = itemView.findViewById(R.id.btnTalonDatos);

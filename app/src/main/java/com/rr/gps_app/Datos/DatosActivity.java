@@ -100,7 +100,7 @@ public class DatosActivity extends AppCompatActivity {
                                         datos.getString("Transportista"),
                                         datos.getString("Net"),
                                         datos.getString("Fecha_Cita"),
-                                        datos.getString("Confirmacion"),
+                                        datos.getString("Canal"),
                                         datos.getString("Fecha_Cita_Hora"),
                                         datos.getString("Descripcion")
                                 ));

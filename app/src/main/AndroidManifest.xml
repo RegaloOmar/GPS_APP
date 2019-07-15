@@ -24,34 +24,47 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ScannerActivity"></activity>
         <activity
             android:name=".ConsultaFechas.FechaActivity"
-            android:parentActivityName=".ConsultaFechas.ConsultaFechaActivity" />
+            android:parentActivityName=".ConsultaFechas.ConsultaFechaActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ConsultaFechas.ConsultaFechaActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".EnrrampeActivity"
-            android:parentActivityName=".CamaraActivity" />
+            android:parentActivityName=".CamaraActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".CamaraActivity"
-            android:parentActivityName=".Semaforo.SemaforoActivity" />
+            android:parentActivityName=".Semaforo.SemaforoActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".IncidenciasActivity"
-            android:parentActivityName=".Semaforo.SemaforoActivity" />
+            android:parentActivityName=".Semaforo.SemaforoActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Datos.DatosActivity"
-            android:parentActivityName=".TalonActivity" />
+            android:parentActivityName=".TalonActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".TalonActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Semaforo.SemaforoActivity"
-            android:parentActivityName=".Datos.DatosActivity" />
-        <activity android:name=".Login.LoginActivity" />
-        <activity android:name=".TransportistaActivity" />
-        <activity android:name=".MainActivity">
+            android:parentActivityName=".Datos.DatosActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Login.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TransportistaActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
