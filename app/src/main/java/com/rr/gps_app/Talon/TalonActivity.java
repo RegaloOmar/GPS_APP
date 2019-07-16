@@ -1,4 +1,4 @@
-package com.rr.gps_app;
+package com.rr.gps_app.Talon;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.rr.gps_app.Adapter.SessionManager;
+import com.rr.gps_app.R;
 import com.rr.gps_app.Semaforo.SemaforoActivity;
 
 import org.json.JSONArray;

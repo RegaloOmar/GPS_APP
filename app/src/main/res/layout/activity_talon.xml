@@ -5,263 +5,271 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TalonActivity"
+    tools:context=".Talon.TalonActivity"
     android:theme="@style/AppTheme"
     android:background="@color/colorFondo">
 
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-            <TextView
-            android:id="@+id/txt1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:textColor="@color/colorBoton"
-            android:text="Talon:" />
-
-        <EditText
-            android:id="@+id/txtTalon"
-            android:layout_width="145dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="94dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@color/colorTexto"
-            android:gravity="center"
-            android:singleLine="true"
-            android:text=""
-            android:hint="# de talon"
-            android:textColor="@color/colorTexto"
-            android:textColorHint="@color/colorHint"
-            android:textSize="20dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txt2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:textColor="@color/colorBoton"
-            android:text="Placas:" />
-
-        <EditText
-            android:id="@+id/txtPlacasTalon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="84dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:textColor="@color/colorHint"
-            android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txt3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:textColor="@color/colorBoton"
-            android:text="Sello:" />
-
-
-        <EditText
-            android:id="@+id/txtSelloTalon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="106dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:textColor="@color/colorHint"
-            android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txt4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:textColor="@color/colorBoton"
-            android:text="Transportista:" />
-
-
-        <EditText
-            android:id="@+id/txtTranspTalon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:textColor="@color/colorHint"
-            android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txt5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:textColor="@color/colorBoton"
-            android:text="Net:" />
-
-
-        <EditText
-            android:id="@+id/txtNetTalon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="123dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:textColor="@color/colorHint"
-            android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txt6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:textColor="@color/colorBoton"
-            android:text="Fecha de Cita:" />
-
-        <EditText
-            android:id="@+id/txtFechaTalon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:textColor="@color/colorHint"
-            android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txt7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:textColor="@color/colorBoton"
-            android:text="Confirmacion:" />
-
-        <EditText
-            android:id="@+id/txtConfimTalon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:textColor="@color/colorHint"
-            android:text="" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
+    <!-- Inicia nuestro ScrollView -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnBuscarTalon"
-            android:layout_width="179dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/colorBoton"
-            android:text="Buscar Talon"
-            android:textColor="@color/colorTexto" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnActualizarTalon"
-            android:layout_width="169dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/colorBoton"
-            android:text="Actualizar"
-            android:textColor="@color/colorTexto" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBoton"
+                    android:text="Talon:" />
+
+                <EditText
+                    android:id="@+id/txtTalon"
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="94dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:backgroundTint="@color/colorTexto"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text=""
+                    android:hint="# de talon"
+                    android:textColor="@color/colorTexto"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBoton"
+                    android:text="Placas:" />
+
+                <EditText
+                    android:id="@+id/txtPlacasTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="84dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorHint"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBoton"
+                    android:text="Sello:" />
 
 
-    <Button
-        android:id="@+id/btnSemaforoTalon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBoton"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Semaforo"
-        android:textColor="@color/colorTexto" />
+                <EditText
+                    android:id="@+id/txtSelloTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="106dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorHint"
+                    android:text="" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBoton"
+                    android:text="Transportista:" />
+
+
+                <EditText
+                    android:id="@+id/txtTranspTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorHint"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBoton"
+                    android:text="Net:" />
+
+
+                <EditText
+                    android:id="@+id/txtNetTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="123dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorHint"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBoton"
+                    android:text="Fecha de Cita:" />
+
+                <EditText
+                    android:id="@+id/txtFechaTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorHint"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBoton"
+                    android:text="Confirmacion:" />
+
+                <EditText
+                    android:id="@+id/txtConfimTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorHint"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBuscarTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/colorBoton"
+                    android:text="Buscar Talon"
+                    android:textColor="@color/colorTexto" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSemaforoTalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBoton"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Semaforo"
+                    android:textColor="@color/colorTexto" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

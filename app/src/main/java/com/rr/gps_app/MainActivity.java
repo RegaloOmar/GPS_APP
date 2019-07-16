@@ -16,12 +16,13 @@ import android.widget.TextView;
 import com.rr.gps_app.Adapter.SessionManager;
 import com.rr.gps_app.ConsultaFechas.ConsultaFechaActivity;
 import com.rr.gps_app.Datos.DatosActivity;
+import com.rr.gps_app.Talon.TalonActivity;
 
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_Seleccionar,btnFechas;
+    private Button btn_Seleccionar,btnFechas,btnTalon;
     private TextView txtUser, txtCanal;
     SessionManager sessionManager;
     final private int REQUEST_CODE_ASK_PERMISSION = 111;
@@ -37,15 +38,16 @@ public class MainActivity extends AppCompatActivity {
         sessionManager.checkLogin();
 
 
-        txtUser = findViewById(R.id.txtUsuario);
-        txtCanal = findViewById(R.id.txtCanal);
-        btn_Seleccionar = findViewById(R.id.btnSeleccionar);
-        btnFechas = findViewById(R.id.btnFechas);
-
         HashMap<String,String> user = sessionManager.getUSerDetail();
         final String mUSer = user.get(sessionManager.USER);
         final String mCanal = user.get(sessionManager.IDCANAL);
         String mDestino = user.get(sessionManager.DESTINO);
+
+        txtUser = findViewById(R.id.txtUsuario);
+        txtCanal = findViewById(R.id.txtCanal);
+        btn_Seleccionar = findViewById(R.id.btnSeleccionar);
+        btnFechas = findViewById(R.id.btnFechas);
+        btnTalon = findViewById(R.id.btnTalon);
 
         txtUser.setText(mUSer);
         txtCanal.setText(mDestino);
@@ -71,6 +73,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(id);
             }
         });
+
+        btnTalon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it;
+                it =  new Intent(MainActivity.this, TalonActivity.class);
+                it.putExtra("datosUsuario",mUSer);
+                it.putExtra("datosCanal",mCanal);
+                startActivity(it);
+            }
+        });
+
     }
 
 

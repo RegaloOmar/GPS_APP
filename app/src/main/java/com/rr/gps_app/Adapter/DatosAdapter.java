@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.rr.gps_app.Class.Datos;
 import com.rr.gps_app.R;
 import com.rr.gps_app.Semaforo.SemaforoActivity;
-import com.rr.gps_app.TalonActivity;
 
 import java.util.List;
 
@@ -68,13 +67,6 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
             }
         });
 
-        holder.btnTalon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mCtx, TalonActivity.class);
-                mCtx.startActivity(i);
-            }
-        });
 
 
     }
@@ -87,7 +79,7 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
     class DatosViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewTalon, textViewPlacas, textViewSellos, textViewTrans,textViewNet, textViewFechaCita, textViewCanal, textViewFechaHora;
-        Button btnSemaforo,btnTalon;
+        Button btnSemaforo;
 
         public DatosViewHolder(View itemView) {
             super(itemView);
@@ -101,7 +93,6 @@ public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHol
             textViewCanal = itemView.findViewById(R.id.txtCanalEdit);
             textViewFechaHora = itemView.findViewById(R.id.txtHoraEdit);
             btnSemaforo = itemView.findViewById(R.id.btnSemaforoDatos);
-            btnTalon = itemView.findViewById(R.id.btnTalonDatos);
         }
     }
 }

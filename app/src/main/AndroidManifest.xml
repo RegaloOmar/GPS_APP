@@ -34,10 +34,10 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".EnrrampeActivity"
-            android:parentActivityName=".CamaraActivity"
+            android:parentActivityName=".Camara.CamaraActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".CamaraActivity"
+            android:name=".Camara.CamaraActivity"
             android:parentActivityName=".Semaforo.SemaforoActivity"
             android:screenOrientation="portrait"/>
         <activity
@@ -46,10 +46,10 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Datos.DatosActivity"
-            android:parentActivityName=".TalonActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".TalonActivity"
+            android:name=".Talon.TalonActivity"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"/>
         <activity

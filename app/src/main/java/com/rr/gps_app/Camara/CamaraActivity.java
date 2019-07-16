@@ -1,12 +1,9 @@
- package com.rr.gps_app;
+ package com.rr.gps_app.Camara;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -30,6 +27,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.rr.gps_app.Adapter.SessionManager;
+import com.rr.gps_app.EnrrampeActivity;
+import com.rr.gps_app.MainActivity;
+import com.rr.gps_app.R;
 import com.rr.gps_app.Semaforo.SemaforoActivity;
 
 import java.io.ByteArrayOutputStream;
