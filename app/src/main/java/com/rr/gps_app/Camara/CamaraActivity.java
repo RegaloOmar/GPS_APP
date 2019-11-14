@@ -40,6 +40,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
  public class CamaraActivity extends AppCompatActivity {
 
 
@@ -93,20 +94,9 @@ import java.util.Map;
                 contador++;
                 dispatchTakePictureIntent();
 
-                //Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                //startActivityForResult(intent, COD_FOTO);
             }
         });
 
-       /* btn_Galeria.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                intent.setType("image/");
-                startActivityForResult(intent.createChooser(intent, "Seleccione"),COD_SELECCIONA);
-            }
-        });*/
 
         btn_CargarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,9 +156,6 @@ import java.util.Map;
                      if (contador == 1) {
                          galleryAddPic();
                          setPic();
-                         //Bundle ext = data.getExtras();
-                         //bmp = (Bitmap) ext.get("data");
-                         //foto.setImageBitmap(bmp);
                          contador = 0;
                      }
 
