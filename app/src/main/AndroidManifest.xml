@@ -24,6 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Scanner.Scanner"></activity>
         <activity
             android:name=".ConsultaFechas.FechaActivity"
             android:parentActivityName=".ConsultaFechas.ConsultaFechaActivity"
