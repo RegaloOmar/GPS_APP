@@ -62,7 +62,7 @@ public class EnrrampeActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btnActualizarEnrrampe);
 
         //URL = "https://rrdevsolutions.com/cdmBueno/master/request/updateRequest.php";
-        URL = "https://rrdevsolutions.com/cdm/master/request/updateRequest.php";
+        URL = "https://grupopromociones.com/cdm/master/request/updateRequest.php";
 
         HashMap<String,String> user = sessionManager.getUSerDetail();
         mUSer = user.get(sessionManager.USER);
