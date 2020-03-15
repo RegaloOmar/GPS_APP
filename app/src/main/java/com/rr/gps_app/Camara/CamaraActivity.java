@@ -57,7 +57,7 @@ import java.util.Map;
      private Date date;
      ProgressDialog progreso, finalizar;
      String talon, currentPhotoPath,mUSer,userSend;
-     String URL = "https://rrdevsolutions.com/cdm/master/request/insertEnd.php";
+     String URL = "https://grupopromociones.com/cdm/master/request/insertEnd.php";
 
 
 
@@ -192,7 +192,7 @@ import java.util.Map;
         progreso.show();
 
          final String fechaActual = new SimpleDateFormat("yyyy-MM-dd").format(date);
-         String url = "https://rrdevsolutions.com/cdm/master/request/requestPhoto.php";
+         String url = "https://grupopromociones.com/cdm/master/request/requestPhoto.php";
 
          stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
              @Override

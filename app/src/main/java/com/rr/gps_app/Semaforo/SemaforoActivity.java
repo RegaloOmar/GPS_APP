@@ -58,7 +58,7 @@ public class SemaforoActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private Date date;
     private FusedLocationProviderClient fusedLocationClient;
-    String URL = "https://rrdevsolutions.com/cdm/master/request/insertStatus.php";
+    String URL = "https://grupopromociones.com/cdm/master/request/insertStatus.php";
     //String URL = "https://rrdevsolutions.com/cdmBueno/master/request/insertStatus.php";
 
     @Override
