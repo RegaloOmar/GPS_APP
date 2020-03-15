@@ -51,7 +51,6 @@ public class Datos {
         return fecha_Cita;
     }
 
-
     public String getConfirmacion() {
         return confirmacion;
     }

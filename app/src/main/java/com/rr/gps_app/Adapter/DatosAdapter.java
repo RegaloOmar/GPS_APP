@@ -16,7 +16,7 @@ import com.rr.gps_app.Semaforo.SemaforoActivity;
 
 import java.util.List;
 
-public class DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHolder>
+public class  DatosAdapter extends RecyclerView.Adapter<DatosAdapter.DatosViewHolder>
 {
     private Context mCtx;
     private List<Datos> datosList;
